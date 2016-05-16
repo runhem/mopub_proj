@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shake that egg!</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="Flower_Icon.png">
+    <link href="startup.png" rel="apple-touch-startup-image">
+    <style>
+    #egg{
+      height: 300px;
+      width: 220px;
+      background-color: blue;
+      border-radius: 50%;
+
+    }
+    </style>
+    </head>
+  <body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="touchy-master/jquery.touchy.js"></script>
+
+    <div id="egg"></div>
+
+    <script>
+
+    var w = $("#egg").css("width");
+    var h = $("#egg").css("height");
+
+var handleTouchyPinch = function (e, $target, data) {
+    w = w*data.scale;
+    h = h*data.scale;
+    $target.css({
+        height: h,
+        width: w
+    });
+};
+
+
+
+
+$('#egg').bind('touchy-pinch', handleTouchyPinch);
+
+$("#egg").click(function(){
+  console.log(w, h)
+})
+
+
+</script>
+  </body>
+</html>
