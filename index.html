@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="egg">
+<head>
+    <title>Shake that App!</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="slideout-0.1.12/dist/slideout.min.js"></script>
+
+    <!-- added two library files to do youtube embeds easy as pie -->
+     <script src="https://youtube.com/iframe_api"></script>
+    <script src="angular-youtube-embed.js"></script>
+
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+
+	<script src="controllers/app.js"></script>
+	<script src="controllers/profileCtrl.js"></script>	
+	<script src="controllers/boilCtrl.js"></script>	
+	<script src="controllers/loginCtrl.js"></script>
+	<script src="controllers/videosCtrl.js"></script>	
+	<script src="controllers/menuCtrl.js"></script>
+
+</head>
+
+<body>	
+	<div class="container">
+	<!-- HEADER + MENY --> 
+	<!-- genom annan html, med tillhörande ctrl--> 
+
+		<div ng-view></div>
+	</div>
+
+</body>
+
+</html> 		
