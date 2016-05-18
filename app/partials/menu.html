@@ -1,9 +1,11 @@
+
+<div id="header">
 	<nav id="menu">
 		<div id="profileMenu">
-			<img id="profilePic" src="profile.png" width="60px" height="60px"/>
+			<img id="profilePic" src="images/profile.png" width="60px" height="60px"/>
 			<h1>Josefine Möller</h1>
 			<div id="myEggs">
-				<img src="myeggs.png" width="40px" height="40px"/>
+				<img src="images/myeggs.png" width="40px" height="40px"/>
 				<p>My eggs</p>
 			</div>
 		</div>
@@ -14,7 +16,21 @@
 	<main id="panel">
 		 	<header>
 			<button class="toggle-button">
-				<img src="burgermenu.png" width="35px" height="35px">
+				<img src="images/burgermenu.png" width="35px" height="35px">
 			</button>
 			</header>
 	</main>
+</div>
+<script>
+	var slideout = new Slideout({
+	'panel': document.getElementById('panel'),
+	'menu': document.getElementById('menu'),
+	'padding': 256,
+	'tolerance': 70
+	});
+
+	// Toggle button
+	document.querySelector('.toggle-button').addEventListener('click', function() {
+	slideout.toggle();
+	});
+</script>

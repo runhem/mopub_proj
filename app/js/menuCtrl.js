@@ -1,4 +1,4 @@
-eggApp.controller('menuCtrl', ['$scope', function($scope){
+eggApp.controller('menuCtrl', function($scope){
 
 	var slideout = new Slideout({
 	'panel': document.getElementById('panel'),
@@ -12,4 +12,4 @@ eggApp.controller('menuCtrl', ['$scope', function($scope){
 	slideout.toggle();
 	});
 
-}]);
+});
