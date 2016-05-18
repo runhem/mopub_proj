@@ -1,2 +1,31 @@
 <!-- Välj eggstorlek -->
-<!-- Redirectar till timer -->
+
+<div id="container">
+  
+  <div id="header">
+    <h1>Scale your egg</h1>
+  </div>
+  
+  <div id="eggDiv">
+    <div id="smallEgg" class="egg">
+      <h2>Small</h2>
+    </div>
+    <div id="mediumEgg" class="egg">
+      <h2>Medium</h2>
+    </div>
+    <div id="largeEgg" class="egg">
+      <h2>Large</h2>
+    </div>
+  </div>
+  
+  <div id="buttons">
+      <button class="sizeButton" ng-click="changeSize('small')">S</button>
+      <button class="sizeButton" ng-click="changeSize('medium')">M</button>
+      <button class="sizeButton" ng-click="changeSize('large')">L</button>
+  </div>
+  
+  <div id="bottom">
+  	<a href="#/timer"><button id="nextButton">Next</button></a>
+  </div>
+
+</div>
