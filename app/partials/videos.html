@@ -1,1 +1,27 @@
 <!-- Visa videos på kategori, ratea videos -->
+<ng-include src="'partials/menu.html'"></ng-include> 
+
+<div id="chooseCategory">
+	<h4>Choose category:</h4>
+	<button class="categoryButton" type="button" id="science" ng-click="getVideo('science')">Science</button>
+	<button class="categoryButton" type="button" id="tutorial" ng-click="getVideo('tutorial')">Tutorial</button>
+	<button class="categoryButton" type="button" id="recipe" ng-click="getVideo('recipe')">Recipes</button>
+	<button class="categoryButton" type="button" id="decoration" ng-click="getVideo('decoration')">Decorations</button>
+</div>
+<!-- You can use 'youtube-video' as an element or attribute. -->
+
+<div class="eggVideos" ng-show="displayVideos" ng-repeat="video in displayVideos">	
+	<h2>{{video.title}}</h2>
+	<youtube-video video-id="video.id" style="width:auto;height:auto;"></youtube-video>
+	<p>Rating: {{video.ratingSum}}</p>
+	<div class="row">
+		<h2>Rate this video</h2>
+		<button class="ratingButton" type="button" ng-click="addRating(1, video)">1</button>
+		<button class="ratingButton" type="button" ng-click="addRating(2, video)">2</button>
+		<button class="ratingButton" type="button" ng-click="addRating(3, video)">3</button>
+		<button class="ratingButton" type="button" ng-click="addRating(4, video)">4</button>
+		<button class="ratingButton" type="button" ng-click="addRating(5, video)">5</button>
+	</div>
+	<div id="line"></div>
+</div>
+

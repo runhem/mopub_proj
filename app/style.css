@@ -1,0 +1,191 @@
+@font-face{
+    font-family: "Buda";
+    src: url(Buda-Light.ttf);
+}
+body{
+	background-color: #f2f2f2;
+	font-family: "Buda";
+}
+#container{
+	text-align: center;
+}
+#header{
+	text-align: left;
+}
+#header > h2{
+	text-align: center;
+	padding-top: 0px;
+}
+
+/**** MENU ****/ 
+
+/*Slide out part */
+.slideout-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+}
+.slideout-panel {
+  position:relative;
+  z-index: 1;
+  will-change: transform;
+}
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+.slideout-open .slideout-menu {
+  display: block;
+}
+
+/*Menu content */
+#panel{
+    padding-top: 10px;
+
+}
+#panel > header{
+	margin-left: 0px;
+}
+#menu{
+  background-color: white;
+  border-right: 1px solid black;
+}
+#menu > h2{
+  background-color: white;
+  border: 1px solid #f2f2f2;
+  margin: 0px;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+#menu > h2:hover{
+  background-color: yellow;
+}
+#profilePic{
+	margin-top: 40px;
+	margin-left: 90px;
+}
+#profileMenu > h1{
+	padding-left: 15px;
+}
+#myEggs{
+	padding-left: 10px;
+}
+
+
+/**** VIDEOS ****/
+
+/* Rating videos */
+.ratingButton{
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 50%;
+		height: 35px;
+		width: 20px;
+		font-weight: bold;
+		text-align: center;
+}
+.ratingButton:hover{
+	background-color: yellow;
+}
+
+/* Categories */
+.categoryButton{
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 5%;
+	height: 40px;
+	width: 85px;
+	font-size: 16px;
+}
+
+/*Line break between videos */
+#line{
+	background-color: black;
+	height: 1px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+/**** NEW EGG ****/
+
+/* Egg */
+.egg{
+	border: 2px solid black;
+	border-radius: 50%;
+	background-color: white;
+	margin-bottom: 0px;
+}
+#smallEgg{
+    height: 80%;
+    width: 150px;
+    text-align: center;
+    margin-left: 27%;
+}
+#mediumEgg{
+  height: 90%;
+  width: 170px;
+  text-align: center;
+  margin-left: 25%;
+}
+#largeEgg{
+  height: 100%;
+  width: 200px;
+  text-align: center;
+  margin-left: 22%;
+
+}
+#eggDiv{
+  height: 300px;
+  width: 100%;
+  text-align: center;
+}
+.egg > h2{
+  text-align: center;
+  color: yellow;
+  font-size: 40px;
+  padding-top: 40%;
+}
+
+/*Egg size */
+.sizeButton{
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+  margin-right: 15px;
+}
+#buttons{
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 5%;
+
+}
+#nextButton{
+  border: 1px solid black;
+  border-radius: 5%;
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+  font-size: 18px;
+}
+button{
+  background-color: white;
+}
+/*Bottom of new egg page */
+#bottom{
+  height: 10%;
+}
+
