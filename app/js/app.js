@@ -1,4 +1,4 @@
-var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed']); 
+var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed','timer']); 
 
 eggApp.config(['$routeProvider',
 	function($routeProvider) { 
