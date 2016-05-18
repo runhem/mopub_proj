@@ -8,17 +8,23 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="Flower_Icon.png">
     <link href="startup.png" rel="apple-touch-startup-image">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
- 	<script type="text/javascript" src="timer-ctrl.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+      <script src="node_modules/angular-timer/bower_components/angular/angular.js"></script>
+      <script src="node_modules/angular-timer/dist/angular-timer.js"></script>
+
+
+ 	    <script src="timer-ctrl.js"></script>
+
     </head>
+
   <body>
+  <div ng-app="egg" ng-controller="timerCtrl" >
+  <input type="range" min="6" max="10" step="0.5">
+  <p ng-bind="counter"></p>
+  <button ng-click="countdown()">Start Boil</button>
+  </div>
 
-
- <input type="text" id="timer">
- <script type="text/javascript">
- 	timer=new Countdown();
- 	timer.init();
- </script>
   </body>
 
   </html>
