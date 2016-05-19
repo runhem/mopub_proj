@@ -12,7 +12,7 @@ a:hover{
 	<nav id="menu">
 		<div id="profileMenu">
 			<img id="profilePic" src="images/profile.png" width="60px" height="60px"/>
-			<h1>Josefine Möller</h1>
+			<h1>{{userName}}</h1>
 			<div id="myEggs">
 				<img src="images/myeggs.png" width="40px" height="40px"/>
 				<p>My eggs</p>
@@ -21,8 +21,9 @@ a:hover{
 		<a href="#/newegg"><h2>New egg</h2></a>
       	<a href="#/profile"><h2>My egg profile</h2></a>
       	<a href="#/videos"><h2>Egg videos</h2></a>
-      	<h2>Log out</h2>
+      	<a href="" ng-click="signOut()">Sign Out</a>
 	</nav>
+
 	<main id="panel">
 		 	<header>
 			<button class="toggle-button">
@@ -31,6 +32,7 @@ a:hover{
 			</header>
 	</main>
 </div>
+
 <script>
 	var slideout = new Slideout({
 	'panel': document.getElementById('panel'),
