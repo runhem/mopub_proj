@@ -49,6 +49,7 @@ body{
 /*Menu content */
 #panel{
     padding-top: 10px;
+    z-index: 1;
 
 }
 #panel > header{
@@ -57,6 +58,7 @@ body{
 #menu{
   background-color: white;
   border-right: 1px solid black;
+  z-index: 1;
 }
 #menu > h2{
   background-color: white;

@@ -1,7 +1,7 @@
 <!-- Visa videos på kategori, ratea videos -->
 <ng-include src="'partials/menu.html'"></ng-include> 
 
-<div id="chooseCategory">
+<div id="chooseCategory" ng-init="checkMenu()">
 	<h4>Choose category:</h4>
 	<button class="categoryButton" type="button" id="science" ng-click="getVideo('science')">Science</button>
 	<button class="categoryButton" type="button" id="tutorial" ng-click="getVideo('tutorial')">Tutorial</button>

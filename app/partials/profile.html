@@ -1,2 +1,66 @@
 <!-- Mina gamla ägg -->
 <!-- Val av gammalt ägg leder till timer --> 
+<style>
+.profileEgg{
+	border: 1px solid black;
+	border-radius: 50%;
+	height: 100px;
+	width: 70px;
+	margin-top: 5px;
+	padding-top: 35%;
+	padding-left: 25%;
+	}
+	.eggFrame{
+		border: 1px solid black;
+		text-align: center;
+	}
+	.eggYolk{
+		background-color: yellow;
+		border-radius: 50%;
+		height: 50%;
+		width: 60%;
+	}
+	.chooseButton{
+		border: 1px solid black;
+		margin-bottom: 5px;
+	}
+	.chooseButton:hover{
+		background-color: yellow;
+	}
+
+	.rating{
+		background-image: url("images/star2.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		margin-left: 60px;
+		width: 40px;
+		height: 30px;
+		padding-top: 5px;
+	}
+</style>
+
+<ng-include src="'partials/menu.html'"></ng-include> 
+<div id="header" ng-init="checkMenu()">
+	<h1>Your eggs</h1>
+	<p>Choose one of your favorite eggs to cook again!</p>
+</div>
+<div class="col-xs-12">
+	<div class="row">
+		<div class="col-xs-4 eggFrame" ng-click="boilAgain()" ng-repeat="egg in eggs">
+			<div class="rating">{{egg.rating}}</div>
+			<div class="profileEgg" >
+				<div class="eggYolk"></div>
+			</div>
+			<div class="row">
+				<div class="size">
+					<p>{{egg.boil}} min | {{egg.size}}<p>
+				</div>
+			</div>
+			<div class="row">
+				<button class="chooseButton" ng-click="boilAgain(egg.boil, egg.size)">Choose</button>
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,5 +1,10 @@
 eggApp.controller('videosCtrl', function($scope){
 
+$scope.checkMenu = function(){
+    if(slideout.isOpen()){
+        slideout.close();
+    }
+}
 
 $scope.eggVids = new Firebase("https://eggapp.firebaseio.com/videobase");
 
