@@ -1,15 +1,27 @@
-eggApp.controller('menuCtrl', function($scope){
+eggApp.controller('menuCtrl', function(eggModel, $scope, $window){
 
-	var slideout = new Slideout({
-	'panel': document.getElementById('panel'),
-	'menu': document.getElementById('menu'),
-	'padding': 256,
-	'tolerance': 70
-	});
+	$scope.userName = "ERNST";
 
-	// Toggle button
-	document.querySelector('.toggle-button').addEventListener('click', function() {
-	slideout.toggle();
-	});
+  	if($scope.returnUser){
+  		$scope.userName = eggModel.returnName();		
+  		$scope.$apply();
+  	}
+
+	$scope.$on('userLoggedIn', function(){
+	  	$scope.userName = eggModel.returnName();	
+	  	$scope.$apply();	
+  	});
+
+
+
+
+  	$scope.signOut = function(){
+  		eggModel.signOut();
+  	};
+
+  	$scope.$on('userLoggedOut', function(){
+  		console.log("Helo")
+  	});
 
 });
+
