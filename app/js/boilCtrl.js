@@ -35,8 +35,37 @@ eggApp.controller('boilCtrl', ['$scope','$timeout', function($scope,$timeout){
 // 	  }
 // 	};
 
+
+	$scope.saveEgg = function(){
+
+		console.log("[insert awesome function here]")
+
+	}  	
+
+	$scope.timerRunning = false;
+	$scope.wannaSave = false;
+
+	$scope.startTimer = function (){
+	     $scope.$broadcast('timer-start');
+         $scope.timerRunning = true;
+         TweenMax.to('.animateEgg',2,{y:"+=400px"});
+		 TweenMax.to('.animateText',0.01,{'opacity':'0'});
+         };
+
+
+	$scope.$on('timer-stopped', function (event, data){
+		$scope.wannaSave = true;
+		$scope.$apply();
+		$scope.timerRunning = false;
+		TweenLite.to('#finishText', 0.001, {text:{value:"TAKE OUT YOUR EGG!", delimiter:" "}, ease:Linear.easeNone, 'color':'red', 'font-weight':'bold'});
+	});        
+
+/*
+	Slask
+
 	$scope.counter = 3;
     var stopped;
+
 
 	$scope.countdown = function() {
 		var animateCount = 0;
@@ -54,15 +83,7 @@ eggApp.controller('boilCtrl', ['$scope','$timeout', function($scope,$timeout){
 	        $scope.wannaSave = true;
 	     }  
 	    }, 1000);
-	  };
-
-	$scope.saveEgg = function(){
-
-		console.log("[insert awesome function here]")
-
-	}  	
-
-
+	  };*/
 
 
 	  
