@@ -1,4 +1,4 @@
-eggApp.controller('boilCtrl', ['$scope','$timeout', function($scope,$timeout){
+eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 
 // ta in eggstorlek
 // Slider ska generera tid
@@ -7,45 +7,53 @@ eggApp.controller('boilCtrl', ['$scope','$timeout', function($scope,$timeout){
 // Klar med boil -> Vill du spara?
 
 // Till CSS sen! 
-// 	small = document.querySelector("#smallEgg");
-// 	large = document.querySelector("#mediumEgg");
-// // Klart med tilll CSS
 
-// 	medium = document.querySelector("#largeEgg");
+	var size = 'S'; 
+	var boil = 4;
 
-// 	small.style.display = "none";
-// 	large.style.display = "none";
+	$scope.initNewEgg = function(){
+    if(slideout.isOpen()){
+        slideout.close();
+    }
+    	
+ 	this.small = document.querySelector("#smallEgg");
+ 	this.large = document.querySelector("#mediumEgg");
+	this.medium = document.querySelector("#largeEgg");
 
-// 	$scope.changeSize = function(size){
-// 	  if(size == 'small'){
-// 	    medium.style.display = "none";
-// 	    large.style.display = "none";
-// 	    small.style.display = "block";
-// 	  }
-// 	  if(size == 'medium'){
-// 	    small.style.display = "none";
-// 	    large.style.display = "none";
-// 	    medium.style.display = "block";
+	this.small.style.display = "none";
+	this.large.style.display = "none";
+	};
 
-// 	  }
-// 	  if(size == 'large'){
-// 	    small.style.display = "none";
-// 	    medium.style.display = "none";
-// 	    large.style.display = "block";
-// 	  }
-// 	};
+	$scope.changeSize = function(eggSize){
+		size = eggSize;
+	  
+	  if(size == 'small'){
+	    this.medium.style.display = "none";
+	    this.large.style.display = "none";
+	    this.small.style.display = "block";
+	  }
+	  if(size == 'medium'){
+	    this.small.style.display = "none";
+	    this.large.style.display = "none";
+	    this.medium.style.display = "block";
 
+	  }
+	  if(size == 'large'){
+	    this.small.style.display = "none";
+	    this.medium.style.display = "none";
+	    this.large.style.display = "block";
+	  }
+	};
+
+	var userId
 
 	$scope.saveEgg = function(){
+		eggModel.loggedIn.child('egg').push({'size': size, 'boil': boil});
+	};
 
-		console.log("[insert awesome function here]")
-
-	}  	
 
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
-
-
 
 	$scope.startTimer = function (){
 	     $scope.$broadcast('timer-start');
@@ -89,7 +97,5 @@ eggApp.controller('boilCtrl', ['$scope','$timeout', function($scope,$timeout){
 	    }, 1000);
 	  };*/
 
+});
 
-	  
-
-}]);

@@ -17,7 +17,7 @@ eggApp.config(['$routeProvider',
         }).
         when('/newegg', {
           templateUrl: 'partials/newegg.html',
-          controller: 'eggCtrl'
+          controller: 'boilCtrl'
         }).
         when('/login', {
           templateUrl: 'partials/login.html',
@@ -43,11 +43,11 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   this.ref = firebase.database().ref();
   this.allEggs = this.ref.child('eggbase');
   this.allUsers = this.ref.child('userbase');
+  this.loggedIn
 
   var auth = firebase.auth();
 
   var provider = new firebase.auth.GoogleAuthProvider();
-
 
   this.signIn = function(){ 
     auth.signInWithRedirect(provider)
@@ -62,20 +62,26 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
     });
   };
 
+  this.setLoggedUser = function(userbaseId){
+    this.loggedIn = this.allUsers.child(userbaseId);
+  };
+
   this.returnUser = function(){
     if(firebase.auth().currentUser){
       return true
-  }else{
+    }else{
       return false
-  }};
+    }
+  };
 
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log("user changed")
     $rootScope.$broadcast('userLoggedIn');
+    this.setLoggedUser()
   } else {
     console.log("No user")
     $rootScope.$broadcast('userLoggedOut');
+    this.loggedIn 
   }
   });
 
@@ -86,7 +92,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
 
   this.returnName = function(){
       return firebase.auth().currentUser.displayName;
-  }
+  };
 
   this.returnPhoto = function(){
     return firebase.auth().currentUser.photoURL; 
