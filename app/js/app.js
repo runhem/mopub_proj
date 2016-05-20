@@ -44,10 +44,9 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   this.allEggs = this.ref.child('eggbase');
   this.allUsers = this.ref.child('userbase');
   this.allVideos = this.ref.child('videobase');
-
   
   this.loggedIn
-  this.eggTime = 1
+  this.eggSizeNow
 
   var auth = firebase.auth();
 
@@ -109,6 +108,10 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   this.returnEggs = function(){
     console.log("Loggedin", this.loggedIn)
     return this.loggedIn.child('egg');
+  }
+
+  this.returnEggSize = function(){
+    return this.eggSizeNow;
   }
 
   return this

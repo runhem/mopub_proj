@@ -40,9 +40,9 @@
     </ol>
 
     <div class="carousel-inner" role="listbox">
-      <div class="item active"><div class="eggi">Small</div></div>
-      <div class="item"><div class="eggi">Medium</div></div>
-      <div class="item"><div class="eggi">Large</div></div>
+      <div class="item active" id="small"><div class="eggi">Small</div></div>
+      <div class="item" id="medium"><div class="eggi">Medium</div></div>
+      <div class="item" id="large"><div class="eggi">Large</div></div>
     </div>
     <!-- Controls -->
     <span class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -53,7 +53,7 @@
     </span>
   </div>
   <div id="footer">
-    <button id="select" type="button">SELECT</button>
+    <button id="select" type="button" ng-click="selectSize()">SELECT</button>
   </div>
 
 

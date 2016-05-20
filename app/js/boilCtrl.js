@@ -8,9 +8,10 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 
 // Till CSS sen! 
 
-	var size = 'S'; 
-	var boil = 4;
 	$scope.eggs = [];
+	$scope.boil 
+	$scope.eggSize = eggModel.returnEggSize()
+	$scope.eggTime = 1;
 
 	$scope.initNewEgg = function(){
 	 	$scope.small = document.querySelector("#smallEgg");
@@ -32,9 +33,7 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 		})
 	};
 
-	$scope.changeSize = function(eggSize){
-		size = eggSize;
-	  
+	$scope.changeSize = function(eggSize){  
 	  if(size == 'small'){
 	    $scope.medium.style.display = "none";
 	    $scope.large.style.display = "none";
@@ -53,9 +52,13 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 	  }
 	};
 
+	$scope.selectSize = function(){
+		eggModel.eggSizeNow = document.querySelector(".item.active").id;
+		$location.path('/timer');
+	}
 
 	$scope.saveEgg = function(){
-		eggModel.loggedIn.child('egg').push({'size': size, 'boil': boil, 'rating': 5});
+		eggModel.loggedIn.child('egg').push({'size': $scope.eggSize, 'boil': $scope.boil, 'rating': 5});
 	};
 
 
@@ -87,10 +90,7 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 		 t1.to('#t4',6,{css:{'height':'100px'}});
 		 t1.to('#c4',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
 		 t1.to('#text4',0.001,{text:{value:"#Tips4: Did you know...", delimiter:" "},ease:Linear.easeNone});
-
-
-
-         };
+    };
 
 
 	$scope.$on('timer-stopped', function (event, data){
@@ -101,8 +101,72 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 		TweenMax.to('#audio1', 2, {'volume':0}, "-=1");
 		TweenMax.to('.tipsQueue',1,{opacity:0});
 		TweenMax.to('#countDown',1,{opacity:0});
-	});        
+	});       
 
+	$scope.initTest = function(){
+		var slider = document.getElementById('slider');
+
+		noUiSlider.create(slider, {
+			start: [ 3 ],
+			step:1,
+			range: {
+				'min': [  1 ],
+				'max': [ 6 ]
+			},	
+			format: {
+	  			to: function ( value ) {
+				return value + '';
+			  },
+			  	from: function ( value ) {
+				return value.replace('', '');
+			  }
+			}
+		});
+
+		slider.noUiSlider.on('update', function(){
+			boil = slider.noUiSlider.get();
+			console.log(boil)
+			if(boil == 1){
+				var tBoil = 'soft'
+				$scope.getEggTime(tBoil);
+
+			}else if(boil == 2){
+				var tBoil = 'soft to medium'
+				$scope.getEggTime(tBoil);
+
+			}else if(boil == 3){
+				var tBoil = 'medium'
+				$scope.getEggTime(tBoil);
+			}else if(boil == 4){
+				var tBoil = 'medium to hard'
+				$scope.getEggTime(tBoil);
+			}else if(boil == 5){
+				var tBoil = 'hard'
+				$scope.getEggTime(tBoil);
+
+			}else if(boil == 6){
+				var tBoil = 'too hard'
+				$scope.getEggTime(tBoil);
+			}
+			$scope.boil = tBoil;
+		});
+};
+
+
+	$scope.getEggTime = function(tBoil){
+		var eggsize = $scope.eggSize;
+      	allEggsSize = eggModel.allEggs.child(eggsize)
+      	allEggsSize.once("value", function(snapshot){
+        snapshot.forEach(function(childSnapshot) {
+          if(childSnapshot.key == tBoil){
+            $scope.eggTime = childSnapshot.val();
+            console.log($scope.eggTime)
+            $scope.$apply()
+          }else{
+          }
+        });
+      }); 
+    };
 
 /*
 	Slask
