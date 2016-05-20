@@ -43,6 +43,9 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   this.ref = firebase.database().ref();
   this.allEggs = this.ref.child('eggbase');
   this.allUsers = this.ref.child('userbase');
+  this.allVideos = this.ref.child('videobase');
+
+  
   this.loggedIn
   this.eggTime = 1
 
