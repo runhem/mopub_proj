@@ -17,7 +17,7 @@ eggApp.config(['$routeProvider',
         }).
         when('/newegg', {
           templateUrl: 'partials/newegg.html',
-          controller: 'eggCtrl'
+          controller: 'boilCtrl'
         }).
         when('/login', {
           templateUrl: 'partials/login.html',
