@@ -6,26 +6,33 @@ a{
 a:hover{
 	color: yellow;
 }
+
+#profilePic{
+	height:70px;
+	width:70px;
+	border-radius: 35px;
+}
+
+.activeHref{
+
+}
+
 </style>
 
 <div id="header">
-	<nav id="menu">
+	<nav id="menu" ng-init="initMenu()">
 		<div id="profileMenu">
-			<img id="profilePic" src="images/profile.png" width="60px" height="60px"/>
+			<img id="profilePic" src='{{userPhoto}}' width="60px" height="60px"/>
 			<h1>{{userName}}</h1>
-			<div id="myEggs">
-				<img src="images/myeggs.png" width="40px" height="40px"/>
-				<p>My eggs</p>
-			</div>
 		</div>
 		<a href="#/newegg"><h2>New egg</h2></a>
-      	<a href="#/profile"><h2>My egg profile</h2></a>
+      	<a href="#/profile"><h2>My eggs</h2></a>
       	<a href="#/videos"><h2>Egg videos</h2></a>
-      	<a href="" ng-click="signOut()">Sign Out</a>
+      	<a href="" ng-click="signOut()"><h2>Sign Out</h2></a>
 	</nav>
 
 	<main id="panel">
-		 	<header>
+		 	<header id="titleheader">
 			<button class="toggle-button">
 				<img id="burger" src="images/burgermenu.png" width="35px" height="35px">
 			</button>

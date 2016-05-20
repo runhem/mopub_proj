@@ -1,34 +1,33 @@
 <!-- Mina gamla ägg -->
 <!-- Val av gammalt ägg leder till timer --> 
 <style>
-.profileEgg{
-	border: 1px solid black;
-	border-radius: 50%;
-	height: 100px;
-	width: 70px;
-	margin-top: 5px;
-	padding-top: 35%;
-	padding-left: 25%;
-	}
-	.eggFrame{
-		border: 1px solid black;
-		text-align: center;
-	}
-	.eggYolk{
-		background-color: yellow;
+	.profileEgg{
 		border-radius: 50%;
-		height: 50%;
-		width: 60%;
-	}
-	.chooseButton{
-		border: 1px solid black;
-		margin-bottom: 5px;
-	}
-	.chooseButton:hover{
-		background-color: yellow;
+		height: 90px;
+		width: 70px;
+		background-color: white;
+		padding-top:30%;
 	}
 
-	.rating{
+	.eggFrame{
+		text-align: center;
+	}
+
+	.container{
+		padding:0px;
+	}
+
+	#panel{
+		background-color: white;
+		padding:10px;
+	}
+
+	#profile{
+		height:100%;
+		text-align: center;
+	}
+
+/*	.rating{
 		background-image: url("images/star2.png");
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -37,31 +36,33 @@
 		width: 40px;
 		height: 30px;
 		padding-top: 5px;
-	}
+	} */
 </style>
+
+<div class="container" style="background-color:yellow; height:100%;">
 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
-<div id="header" ng-init="checkMenu()">
-	<h1>Your eggs</h1>
+<!-- <h1>Your eggs</h1> -->
+
+<div id="profile" ng-init="checkMenu()">
 	<p>Choose one of your favorite eggs to cook again!</p>
 </div>
 <div class="col-xs-12" ng-init="initProfile()">
 	<div class="row">
 		<div class="col-xs-4 eggFrame" ng-click="boilAgain()" ng-repeat="egg in eggs">
-			<div class="rating">{{egg.rating}}</div>
 			<div class="profileEgg" >
-				<div class="eggYolk"></div>
+				<p>Size:{{egg.size}}<br/>
+					Boil:{{egg.boil}}</p>
 			</div>
-			<div class="row">
-				<div class="size">
-					<p>{{egg.boil}} min | {{egg.size}}<p>
-				</div>
-			</div>
-			<div class="row">
-				<button class="chooseButton" ng-click="boilAgain(egg.boil, egg.size)">Choose</button>
-			</div>
-
+			<div class="rating">{{egg.rating}}</div>
 		</div>
 	</div>
 </div>
+</div>
+
+
+
+
+
+

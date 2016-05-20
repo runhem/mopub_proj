@@ -1,14 +1,18 @@
-eggApp.controller('menuCtrl', function(eggModel, $scope){
+eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
 
-	$scope.userName = "ERNST";
+	$scope.userName = "";
+  $scope.userPhoto = "images/profile.png";
 
-  	if($scope.returnUser){
-  		$scope.userName = eggModel.returnName();		
-  		$scope.$apply();
+  $scope.initMenu = function(){
+  	if(eggModel.loggedIn){
+  		$scope.userName = eggModel.returnName();	
+      $scope.userPhoto = eggModel.returnPhoto();	
   	}
+  };
 
 	$scope.$on('userLoggedIn', function(){
-	  	$scope.userName = eggModel.returnName();	
+	  	$scope.userName = eggModel.returnName();
+      $scope.userPhoto = eggModel.returnPhoto();
 	  	$scope.$apply();	
   	});
 
@@ -24,7 +28,11 @@ eggApp.controller('menuCtrl', function(eggModel, $scope){
   	};
 
   	$scope.$on('userLoggedOut', function(){
-  		console.log("Helo")
+      $location.path('/login');  
+      $scope.$apply() 
+             
+      $scope.userName = "";
+      $scope.userPhoto = "images/profile.png";
   	});
 
 });
