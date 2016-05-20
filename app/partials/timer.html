@@ -3,73 +3,34 @@
 
 <!-- Save egg dyker upp. Ng-include -->
 
-<style>
-    .tips {
-    width: 5px;
-    height: 100px;
-    margin-left: 50px;
-    margin-bottom: 0px;
-    background-color: yellow;
-    border: 2px solid yellow;
-    border-radius: 5px;
-    opacity: 0;
-}
-
-.circle{
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: 2px solid rgb(255, 255, 153);
-	background-color:rgb(255, 255, 153); 
-	margin-left: 32px;
-	margin-top:-10px;
-	margin-bottom: 0px; 
-	opacity: 0;
-}
-
-.tipsText{
-	width: 400px;
-	height: 100px;
-	margin-left: 60px;
-	margin-top: 8px;
-	font-weight: bold;
-	font-family: Arial, Helvetica, sans-serif;
-
-}
-
-
-</style>
-
-<div ng-show="wannaSave" class="col-xs-4" style="height:300px;width:250px;border:3px solid black;border-radius:5px;padding-top:100px;text-align:center;font-weight:bold;background-color:#C9EAF3;margin-left:48px;margin-bottom:0px;" >
-
-	<p ng-init="initRating()">How was your egg?</p>
-	<div id="el"></div>
-	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button>
-
-</div>
-
 <!-- <div class="col-md-12">
 <div id="slider" style="margin-top:20px;">
   <input type="range" class="custom" min="6" max="10" step="0.5" style="width:200px;height:10px;color:black;">
 </div>
  -->
 
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+
 <div id="countDown" style="text-align:center;">
-<timer countdown="10" interval="1000" autostart="fale">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
-<div id="finishText"></div>
+<timer id="timer" countdown="600" interval="1000" autostart="fale">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
 <audio id="audio1" src="egg.m4a"></audio>
 </div>
 
 
-<svg width="210" height="400" ng-click="startTimer()" ng-disabled="timerRunning" style="margin-left:15px;">
+<svg width="210" height="400" ng-click="startTimer()" ng-disabled="timerRunning" style="margin-left:10%;z-index:-1;">
 		<ellipse class="animateEgg" cx="160" cy="80" rx="40" ry="60"
   		style="fill:white;stroke:grey;stroke-width:2;"></ellipse>
-  		<circle class="animateEgg" cx="160" cy="80" r="20" fill="yellow" style="opacity:0.4;"/>
+  		<circle class="animateEgg" cx="160" cy="80" r="20" fill="yellow" style="opacity:0.4;z-index:-1"></circle>
   		<text class="animateText" x="130" y="80" style="font-size:10px;font-weight:bold;">START BOIL!</text>
 </svg>
 
+<div ng-show="wannaSave" class="saveEgg">
+	<p ng-init="initRating()">How was your egg?</p>
+	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button>
 </div>
 
+
+<div class="tipsQueue" ng-show="animate">
 <div class="tips" id="t1"></div>
 <div class="circle" id="c1">
 <div class="tipsText" id="text1"></div></div>
@@ -82,6 +43,9 @@
 <div class="tips" id="t4"></div>
 <div class="circle" id="c4">
 <div class="tipsText" id="text4"></div></div>
+</div>
+
+
 
 
 

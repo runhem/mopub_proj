@@ -61,29 +61,31 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
+	$scope.animate = false;
 
 	$scope.startTimer = function (){
 	     $scope.$broadcast('timer-start');
          $scope.timerRunning = true;
+         $scope.animate = true;
          TweenMax.to('.animateEgg',2,{y:"+=400px"});
 		 TweenMax.to('.animateText',0.01,{'opacity':'0'});
 		 document.getElementById('audio1').play();
 		 var t1 = new TimelineMax();
-		 t1.from('#t1',2, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t1',2,{opacity:1},{css:{'height':'100px'}});
-		 t1.to('#c1',2,{opacity:1});
+		 t1.from('#t1',0.1, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t1',60,{css:{'height':'100px'}});
+		 t1.to('#c1',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
 		 t1.to('#text1',0.001,{text:{value:"#Tips1: Did you know...", delimiter:" "},ease:Linear.easeNone});
-		 t1.from('#t2',2, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t2',2,{opacity:1},{css:{'height':'100px'}});
-		 t1.to('#c2',2,{opacity:1});
+		 t1.from('#t2',0.1, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t2',6,{css:{'height':'100px'}});
+		 t1.to('#c2',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
 		 t1.to('#text2',0.001,{text:{value:"#Tips2: Did you know...", delimiter:" "},ease:Linear.easeNone});
-		 t1.from('#t3',2, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t3',2,{opacity:1},{css:{'height':'100px'}});
-		 t1.to('#c3',2,{opacity:1});
+		 t1.from('#t3',0.1, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t3',6,{css:{'height':'100px'}});
+		 t1.to('#c3',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
 		 t1.to('#text3',0.001,{text:{value:"#Tips3: Did you know...", delimiter:" "},ease:Linear.easeNone});
-		 t1.from('#t4',2, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t4',2,{opacity:1},{css:{'height':'100px'}});
-		 t1.to('#c4',2,{opacity:1});
+		 t1.from('#t4',0.1, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t4',6,{css:{'height':'100px'}});
+		 t1.to('#c4',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
 		 t1.to('#text4',0.001,{text:{value:"#Tips4: Did you know...", delimiter:" "},ease:Linear.easeNone});
 
 
@@ -95,8 +97,10 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 		$scope.wannaSave = true;
 		$scope.$apply();
 		$scope.timerRunning = false;
-		TweenLite.to('#finishText', 0.001, {text:{value:"TAKE OUT YOUR EGG!", delimiter:" "}, ease:Linear.easeNone, 'color':'red', 'font-weight':'bold'});
+		TweenLite.to('#finishText', 0.001, {text:{value:"YOUR EGG IS DONE!", delimiter:" "}, ease:Linear.easeNone});
 		TweenMax.to('#audio1', 2, {'volume':0}, "-=1");
+		TweenMax.to('.tipsQueue',1,{opacity:0});
+		TweenMax.to('#countDown',1,{opacity:0});
 	});        
 
 
