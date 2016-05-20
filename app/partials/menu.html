@@ -7,7 +7,7 @@ a:hover{
 	color: yellow;
 }
 
-.active{
+.activeMenu{
     text-decoration: underline;
 }
 
@@ -51,9 +51,9 @@ a > h2{
 			<img id="profilePic" src='{{userPhoto}}' width="60px" height="60px"/>
 			<h1 style="text-align:center;">{{userName}}</h1>
 		</div>
-		<a href="#/newegg" ng-class="{'active':path == '/newegg'}"><h2>New egg</h2></a>
-      	<a href="#/profile" ng-class="{'active':path == '/profile'}"><h2>My eggs</h2></a>
-      	<a href="#/videos" ng-class="{'active':path == '/videos'}"><h2>Egg videos</h2></a>
+		<a href="#/newegg" ng-class="{'activeMenu':path == '/newegg'}"><h2>New egg</h2></a>
+      	<a href="#/profile" ng-class="{'activeMenu':path == '/profile'}"><h2>My eggs</h2></a>
+      	<a href="#/videos" ng-class="{'activeMenu':path == '/videos'}"><h2>Egg videos</h2></a>
       	<a href="" ng-click="signOut()"><h2>Sign Out</h2></a>
 	</nav>
 
