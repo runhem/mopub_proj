@@ -37,6 +37,20 @@
 		height: 30px;
 		padding-top: 5px;
 	} */
+
+	#starButton{
+ 	background: url('images/starWhite.png');
+ 	background-repeat: no-repeat;
+ 	background-size: 50px;
+ 	border: none;
+ 	font-size: 28px;
+ }
+
+ button{
+	width: 10px;
+	height: 10px;
+}
+
 </style>
 
 <div class="container" style="background-color:yellow; height:100%;">
@@ -54,8 +68,8 @@
 			<div class="profileEgg" >
 				<p>Size:{{egg.size}}<br/>
 					Boil:{{egg.boil}}</p>
+					<button id="starButton" type="button">{{egg.rating}}</button>
 			</div>
-			<div class="rating">{{egg.rating}}</div>
 		</div>
 	</div>
 </div>
