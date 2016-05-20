@@ -3,11 +3,48 @@
 
 <!-- Save egg dyker upp. Ng-include -->
 
+<style>
+    .tips {
+    width: 5px;
+    height: 100px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    background-color: yellow;
+    border: 2px solid yellow;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+.circle{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid rgb(255, 255, 153);
+	background-color:rgb(255, 255, 153); 
+	margin-left: 32px;
+	margin-top:-10px;
+	margin-bottom: 0px; 
+	opacity: 0;
+}
+
+.tipsText{
+	width: 400px;
+	height: 100px;
+	margin-left: 60px;
+	margin-top: 8px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+</style>
+
 <div ng-show="wannaSave" class="col-xs-4" style="height:300px;width:250px;border:3px solid black;border-radius:5px;padding-top:100px;text-align:center;font-weight:bold;background-color:#C9EAF3;margin-left:48px;margin-bottom:0px;" >
 
 	<p ng-init="initRating()">How was your egg?</p>
 	<div id="el"></div>
-<!--	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button> -->
+	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button>
 
 </div>
 
@@ -18,7 +55,7 @@
  -->
 
 <div id="countDown" style="text-align:center;">
-<timer countdown="1" interval="1000" autostart="fale">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
+<timer countdown="10" interval="1000" autostart="fale">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
 <div id="finishText"></div>
 <audio id="audio1" src="egg.m4a"></audio>
 </div>
@@ -33,16 +70,18 @@
 
 </div>
 
-
-<!-- Slask -->
-
-<!-- <button ng-click="startTimer()" ng-disabled="timerRunning">Start Boil!</button>
-
-
-<div id="countDown" style="text-align:center;">
-	<p ng-bind="counter"></p>
-</div>
-
+<div class="tips" id="t1"></div>
+<div class="circle" id="c1">
+<div class="tipsText" id="text1"></div></div>
+<div class="tips" id="t2"></div>
+<div class="circle" id="c2">
+<div class="tipsText" id="text2"></div></div>
+<div class="tips" id="t3"></div>
+<div class="circle" id="c3">
+<div class="tipsText" id="text3"></div></div>
+<div class="tips" id="t4"></div>
+<div class="circle" id="c4">
+<div class="tipsText" id="text4"></div></div>
 
 
 

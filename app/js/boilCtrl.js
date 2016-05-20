@@ -68,6 +68,26 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
          TweenMax.to('.animateEgg',2,{y:"+=400px"});
 		 TweenMax.to('.animateText',0.01,{'opacity':'0'});
 		 document.getElementById('audio1').play();
+		 var t1 = new TimelineMax();
+		 t1.from('#t1',2, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t1',2,{opacity:1},{css:{'height':'100px'}});
+		 t1.to('#c1',2,{opacity:1});
+		 t1.to('#text1',0.001,{text:{value:"#Tips1: Did you know...", delimiter:" "},ease:Linear.easeNone});
+		 t1.from('#t2',2, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t2',2,{opacity:1},{css:{'height':'100px'}});
+		 t1.to('#c2',2,{opacity:1});
+		 t1.to('#text2',0.001,{text:{value:"#Tips2: Did you know...", delimiter:" "},ease:Linear.easeNone});
+		 t1.from('#t3',2, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t3',2,{opacity:1},{css:{'height':'100px'}});
+		 t1.to('#c3',2,{opacity:1});
+		 t1.to('#text3',0.001,{text:{value:"#Tips3: Did you know...", delimiter:" "},ease:Linear.easeNone});
+		 t1.from('#t4',2, {css:{'height':'0px', 'width':'5'}});
+		 t1.to('#t4',2,{opacity:1},{css:{'height':'100px'}});
+		 t1.to('#c4',2,{opacity:1});
+		 t1.to('#text4',0.001,{text:{value:"#Tips4: Did you know...", delimiter:" "},ease:Linear.easeNone});
+
+
+
          };
 
 
