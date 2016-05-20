@@ -52,6 +52,7 @@ body{
 }
 #panel > header{
 	margin-left: 0px;
+  margin-bottom: 0px;
 }
 #menu{
   background-color: white;
@@ -82,30 +83,43 @@ body{
 
 
 /**** VIDEOS ****/
-
-/* Rating videos */
-.ratingButton{
-		background-color: white;
-		border: 1px solid black;
-		border-radius: 50%;
-		height: 35px;
-		width: 20px;
-		font-weight: bold;
-		text-align: center;
+.buttonCss{
+  margin-left: 26px;
 }
-.ratingButton:hover{
-	background-color: yellow;
+.videos{
+  width: 100%;
+  height: 600px;
+  background-color:rgb(255, 255, 153);  
+}
+
+.eggVideos{
+  margin-left: 35px;
+}
+
+#chooseCategory{
+  margin-top: -10px;
+}
+
+#chooseCategory > h4{
+  padding-top: 20px;
+  margin-left: 26px;
 }
 
 /* Categories */
 .categoryButton{
 	background-color: white;
 	border: 1px solid black;
-	border-radius: 5%;
+	border-radius: 10px;
 	height: 40px;
-	width: 85px;
+	width: auto;
 	font-size: 16px;
+  margin-top: 0px;
 }
+
+.categoryButton:hover{
+  background-color: yellow;
+}
+
 
 /*Line break between videos */
 #line{
@@ -113,6 +127,7 @@ body{
 	height: 1px;
 	width: 100%;
 	margin-top: 10px;
+  margin-left: -12px;
 }
 
 /**** NEW EGG ****/

@@ -5,6 +5,7 @@ eggApp.controller('videosCtrl', function($scope, eggModel){
 $scope.displayVideos = [];
 
     $scope.getVideo = function(videoCat){
+
     $scope.displayVideos = [];
        eggModel.allVideos.once("value", function(snapshot){
             snapshot.forEach(function(childSnapshot){
