@@ -1,5 +1,5 @@
 <!-- Välj eggstorlek -->
-<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+
 
 <!-- <div id="container">
   
@@ -30,10 +30,7 @@
   </div>
 
 </div> -->
-<div class="container">
-  <div id="header">
-    <h1>Scale egg</h1>
-  </div>
+  <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -56,9 +53,8 @@
     </span>
   </div>
   <div id="footer">
-    <button type="button">SELECT</button>
+    <button id="select" type="button">SELECT</button>
   </div>
-</div><!--//container -->
 
 
 <style>
@@ -105,7 +101,7 @@
     width: 225px;
     background:white;
     border-radius: 50%;
-    margin-left: 45px;
+    margin-left: 75px;
     padding-top: 130px;
 }
 #footer{
@@ -114,9 +110,9 @@
   text-align: center;
 }
 
-button{
+#select{
   border: 2px solid black;
-  background-color: yellow;
+  background-color: white;
   height: 65px;
   width: 214px;
   font-size: 36px;

@@ -9,9 +9,7 @@ body{
 #container{
 	text-align: center;
 }
-#header{
-	text-align: left;
-}
+
 #header > h2{
 	text-align: center;
 	padding-top: 0px;
@@ -48,7 +46,6 @@ body{
 
 /*Menu content */
 #panel{
-    padding-top: 10px;
     z-index: 1;
 
 }
