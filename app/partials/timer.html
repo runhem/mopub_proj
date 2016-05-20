@@ -3,18 +3,19 @@
 
 <!-- Save egg dyker upp. Ng-include -->
 
-<div ng-show="wannaSave" class="col-xs-4" style="height:300px;width:250px;border:3px solid black;border-radius:5px;padding-top:100px;text-align:center;font-weight:bold;background-color:#C9EAF3;margin-left:48px;margin-bottom:0px;">
+<div ng-show="wannaSave" class="col-xs-4" style="height:300px;width:250px;border:3px solid black;border-radius:5px;padding-top:100px;text-align:center;font-weight:bold;background-color:#C9EAF3;margin-left:48px;margin-bottom:0px;" >
 
-	<p>How was your egg?</p>
-	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button>
+	<p ng-init="initRating()">How was your egg?</p>
+	<div id="el"></div>
+<!--	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button> -->
 
 </div>
 
-<div class="col-md-12">
+<!-- <div class="col-md-12">
 <div id="slider" style="margin-top:20px;">
   <input type="range" class="custom" min="6" max="10" step="0.5" style="width:200px;height:10px;color:black;">
 </div>
-
+ -->
 
 <div id="countDown" style="text-align:center;">
 <timer countdown="1" interval="1000" autostart="fale">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>

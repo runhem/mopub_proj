@@ -13,12 +13,12 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 	$scope.eggs = [];
 
 	$scope.initNewEgg = function(){
-	 	this.small = document.querySelector("#smallEgg");
-	 	this.large = document.querySelector("#mediumEgg");
-		this.medium = document.querySelector("#largeEgg");
+	 	$scope.small = document.querySelector("#smallEgg");
+	 	$scope.large = document.querySelector("#mediumEgg");
+		$scope.medium = document.querySelector("#largeEgg");
 
-		this.small.style.display = "none";
-		this.large.style.display = "none";
+		$scope.small.style.display = "none";
+		$scope.large.style.display = "none";
 	};
 
 	$scope.initProfile = function(){ 
@@ -36,20 +36,20 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 		size = eggSize;
 	  
 	  if(size == 'small'){
-	    this.medium.style.display = "none";
-	    this.large.style.display = "none";
-	    this.small.style.display = "block";
+	    $scope.medium.style.display = "none";
+	    $scope.large.style.display = "none";
+	    $scope.small.style.display = "block";
 	  }
 	  if(size == 'medium'){
-	    this.small.style.display = "none";
-	    this.large.style.display = "none";
-	    this.medium.style.display = "block";
+	    $scope.small.style.display = "none";
+	    $scope.large.style.display = "none";
+	    $scope.medium.style.display = "block";
 
 	  }
 	  if(size == 'large'){
-	    this.small.style.display = "none";
-	    this.medium.style.display = "none";
-	    this.large.style.display = "block";
+	    $scope.small.style.display = "none";
+	    $scope.medium.style.display = "none";
+	    $scope.large.style.display = "block";
 	  }
 	};
 
@@ -78,6 +78,7 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 		TweenLite.to('#finishText', 0.001, {text:{value:"TAKE OUT YOUR EGG!", delimiter:" "}, ease:Linear.easeNone, 'color':'red', 'font-weight':'bold'});
 		TweenMax.to('#audio1', 2, {'volume':0}, "-=1");
 	});        
+
 
 /*
 	Slask
