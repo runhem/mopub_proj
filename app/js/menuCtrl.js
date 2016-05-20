@@ -2,6 +2,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
 
 	$scope.userName = "";
   $scope.userPhoto = "images/profile.png";
+  $scope.path = $location.$$path;
 
   $scope.initMenu = function(){
   	if(eggModel.loggedIn){
@@ -21,6 +22,8 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
       slideout.close();
      }; 
   });
+
+  
 
 
   	$scope.signOut = function(){

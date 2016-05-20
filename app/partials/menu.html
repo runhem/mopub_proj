@@ -7,17 +7,14 @@ a:hover{
 	color: yellow;
 }
 
-
-#profilePic{
-	height:70px;
-	width:70px;
-	border-radius: 35px;
+.active{
+    text-decoration: underline;
 }
 
-header{
+
+#menuHeader{
 height: 80px;
 background-color: white;
-padding: 10px;
 padding-left: 0px;
 border-bottom: 1px solid black;
 margin-bottom: 20px;
@@ -29,17 +26,34 @@ margin-bottom: 20px;
 
 }
 
-</style>
+a > h2{
+	margin-left: 10px;
+}
 
-<div id="header">
+.toggle-button{
+	margin-left: -26px;
+}
+
+#opacityContent{	
+	height: 600px;
+	width: 400px;
+	background-color:rgb(255, 255, 153);
+	margin-top: -20px;
+	display: none;
+}
+
+
+
+</style>
+<div id="menuHeader">
 	<nav id="menu" ng-init="initMenu()">
 		<div id="profileMenu">
 			<img id="profilePic" src='{{userPhoto}}' width="60px" height="60px"/>
-			<h1>{{userName}}</h1>
+			<h1 style="text-align:center;">{{userName}}</h1>
 		</div>
-		<a href="#/newegg"><h2>New egg</h2></a>
-      	<a href="#/profile"><h2>My eggs</h2></a>
-      	<a href="#/videos"><h2>Egg videos</h2></a>
+		<a href="#/newegg" ng-class="{'active':path == '/newegg'}"><h2>New egg</h2></a>
+      	<a href="#/profile" ng-class="{'active':path == '/profile'}"><h2>My eggs</h2></a>
+      	<a href="#/videos" ng-class="{'active':path == '/videos'}"><h2>Egg videos</h2></a>
       	<a href="" ng-click="signOut()"><h2>Sign Out</h2></a>
 	</nav>
 
@@ -47,28 +61,35 @@ margin-bottom: 20px;
 		 	<header>
 		 		<div class="col-xs-12">
 			 		<div class="col-xs-2">
-						<button class="toggle-button">
-							<img id="burger" src="images/burgermenu.png" width="35px" height="35px">
-						</button>
+							<img class="toggle-button" id="burger" src="images/burgermenu.png" width="35px" height="35px">
 					</div>
 					<div class="col-xs-10">
-						<h1>Scale egg</h1>
+						<h1 style="margin-left:18px;">Scale egg</h1>
 					</div>
 				</div>
 			</header>
 	</main>
 </div>
-
+<div id="opacityContent"></div>
 <script>
 	var slideout = new Slideout({
 	'panel': document.getElementById('panel'),
 	'menu': document.getElementById('menu'),
 	'padding': 256,
-	'tolerance': 70
+	'tolerance': 70,
 	});
+
 
 	// Toggle button
 	document.querySelector('.toggle-button').addEventListener('click', function() {
 	slideout.toggle();
+	if(slideout.isOpen()){
+	angular.element('#opacityContent').css('display', 'block');
+	}
+	else{
+	angular.element('#opacityContent').css('display', 'none');
+	}
+
+
 	});
 </script>

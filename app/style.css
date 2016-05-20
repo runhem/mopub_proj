@@ -73,9 +73,9 @@ body{
 #profilePic{
 	margin-top: 40px;
 	margin-left: 90px;
-}
-#profileMenu > h1{
-	padding-left: 15px;
+  height:70px;
+  width:70px;
+  border-radius: 35px;
 }
 #myEggs{
 	padding-left: 10px;
