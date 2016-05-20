@@ -63,6 +63,44 @@ background-color: white;
 	padding-bottom: 10px;
 }
 
+.eggRow{
+	margin-bottom:5px;
+	padding:0px;
+}
+
+#egg{
+	height:60px;
+	width:45px;
+	border-radius: 40px;
+	background-color: white;
+	margin-left:5px;
+	margin-bottom:5px;
+	margin-top:5px;
+    padding: 0px;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.p-custom{
+	font-size: 18px;
+    padding-top: 10px;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+.p-smaller-custom{
+	font-size: 12px;
+	margin:0px;
+}
+
+.row{
+	margin:0px;
+}
+
+.stari{
+	padding:0px;
+}
+
 </style>
 
 
@@ -73,7 +111,31 @@ background-color: white;
 	<p>Choose one of your favorite eggs to cook again!</p>
 </div>
 <div class="col-xs-12" ng-init="initProfile()">
-	<div class="row">
+	<div class="col-xs-12 eggRow" ng-click="boilAgain(egg.size, egg.boil)" ng-repeat="egg in eggs">
+		<div class="row">
+			<div class="col-xs-12" style="padding:0px; height: 60px;">
+				<p class="p-custom">{{egg.size}} egg with {{egg.boil}} boil </p>
+			</div>
+		</div>
+
+	<div class="col-xs-12">
+		<div class="row">
+
+<!-- KANSKE EN FOR RATING IN EGG PÅ NÅGOT SÄTT?-->			
+			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
+			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
+			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
+			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
+			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>			
+
+	<!-- LÄGGA DATUM I DATABASEN FÖR SPARAT EGG VORE JU NICE -->
+			<div class="col-xs-5"><p class="p-smaller-custom">25/05/2016</p></div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!-- 	<div class="row">
 		<div class="col-xs-6 eggFrame" ng-click="boilAgain()" ng-repeat="egg in eggs">
 			<div class="border">
 				{{egg.size}} and {{egg.boil}}<button class="removeEgg" type="button">X</button>
@@ -85,8 +147,8 @@ background-color: white;
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</div> 
+	</div>-->
 
 </div>
 

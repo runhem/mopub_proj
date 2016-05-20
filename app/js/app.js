@@ -1,4 +1,4 @@
-var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed','timer']); 
+var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed','timer','ngTouch']); 
 
 eggApp.config(['$routeProvider',
   function($routeProvider) { 
@@ -14,6 +14,10 @@ eggApp.config(['$routeProvider',
         when('/videos', {
           templateUrl: 'partials/videos.html',
           controller: 'videosCtrl'
+        }).
+        when('/test', {
+          templateUrl: 'partials/slidertest.html',
+          controller: 'boilCtrl'
         }).
         when('/newegg', {
           templateUrl: 'partials/newegg.html',

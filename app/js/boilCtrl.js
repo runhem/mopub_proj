@@ -1,4 +1,4 @@
-eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
+eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$window){
 
 // ta in eggstorlek
 // Slider ska generera tid
@@ -166,6 +166,24 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
           }
         });
       }); 
+    };
+
+
+// Typ såhär beroende på hur sidan som nu visas ser ut?
+// Kanske att vi måste göra en funktion i app som gör att boil sparas där med 
+// I och med att CTRL kanske läses om och vi då måste spara boil-värdet på en 
+// fast plats? 
+
+    $scope.boilAgain = function(size, boil){
+		eggModel.eggSizeNow = size;
+		$scope.eggSize = size;
+		getEggTime(boil);
+    };
+
+    $scope.removeEgg = function(key){
+    	// Måste nog spara eggets KEY också i listan i början, så det kan 
+    	// SKickas med som värde till den här funktionen 
+    	// sen ba eggModel.allEggs.child(key).remove(); antagligen! 
     };
 
 /*
