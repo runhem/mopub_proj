@@ -1,4 +1,4 @@
-eggApp.controller('menuCtrl', function(eggModel, $scope, $window){
+eggApp.controller('menuCtrl', function(eggModel, $scope){
 
 	$scope.userName = "ERNST";
 
@@ -12,7 +12,11 @@ eggApp.controller('menuCtrl', function(eggModel, $scope, $window){
 	  	$scope.$apply();	
   	});
 
-
+  $scope.$on('$routeChangeStart', function() { 
+    if(slideout.isOpen()){
+      slideout.close();
+     }; 
+  });
 
 
   	$scope.signOut = function(){

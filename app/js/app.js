@@ -5,7 +5,7 @@ eggApp.config(['$routeProvider',
     $routeProvider.
       when('/profile', {
         templateUrl: 'partials/profile.html',
-        controller: 'profileCtrl'
+        controller: 'boilCtrl'
          }).
         when('/timer', {
           templateUrl: 'partials/timer.html',
@@ -102,6 +102,22 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
     return firebase.auth().currentUser.uid;
   };
 
+  this.returnEggs = function(){
+    console.log("Loggedin", this.loggedIn)
+    return this.loggedIn.child('egg');
+  }
+
   return this
 
 });
+
+
+
+
+
+
+
+
+
+
+

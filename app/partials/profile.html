@@ -40,12 +40,13 @@
 	}
 </style>
 
-<ng-include src="'partials/menu.html'"></ng-include> 
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+
 <div id="header" ng-init="checkMenu()">
 	<h1>Your eggs</h1>
 	<p>Choose one of your favorite eggs to cook again!</p>
 </div>
-<div class="col-xs-12">
+<div class="col-xs-12" ng-init="initProfile()">
 	<div class="row">
 		<div class="col-xs-4 eggFrame" ng-click="boilAgain()" ng-repeat="egg in eggs">
 			<div class="rating">{{egg.rating}}</div>

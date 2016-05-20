@@ -10,18 +10,26 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 
 	var size = 'S'; 
 	var boil = 4;
+	$scope.eggs = [];
 
 	$scope.initNewEgg = function(){
-    if(slideout.isOpen()){
-        slideout.close();
-    }
-    	
- 	this.small = document.querySelector("#smallEgg");
- 	this.large = document.querySelector("#mediumEgg");
-	this.medium = document.querySelector("#largeEgg");
+	 	this.small = document.querySelector("#smallEgg");
+	 	this.large = document.querySelector("#mediumEgg");
+		this.medium = document.querySelector("#largeEgg");
 
-	this.small.style.display = "none";
-	this.large.style.display = "none";
+		this.small.style.display = "none";
+		this.large.style.display = "none";
+	};
+
+	$scope.initProfile = function(){ 
+		eggModel.returnEggs().on("value", function(snapshot){
+			snapshot.forEach(function(childSnapshot){
+			$scope.eggs.push({'boil':childSnapshot.child('boil').val(),
+								'size':childSnapshot.child('size').val(),
+								'rating':childSnapshot.child('rating').val()
+							})
+			})
+		})
 	};
 
 	$scope.changeSize = function(eggSize){
@@ -45,10 +53,9 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel){
 	  }
 	};
 
-	var userId
 
 	$scope.saveEgg = function(){
-		eggModel.loggedIn.child('egg').push({'size': size, 'boil': boil});
+		eggModel.loggedIn.child('egg').push({'size': size, 'boil': boil, 'rating': 5});
 	};
 
 
