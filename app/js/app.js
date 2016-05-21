@@ -175,11 +175,20 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   }
 
   //Removes egg from database
-  this.removeEggFromDatabase = function(){
+  this.removeEggFromDatabase = function(item){
+    console.log("i remove")
     //Ska ta bort egg från firebase
     //Vet ej hur man gör :(
+    this.loggedIn.child('egg').on("value", function(snapshot){
+      snapshot.forEach(function(childSnapshot){
+        //Istället kolla om key = key
+        if(childSnapshot.val() == item){
+          //remove
+        }
+        else{ console.log("not to remove")}
+        })
+    })
   }
-
 
   return this
 

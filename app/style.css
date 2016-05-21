@@ -307,9 +307,7 @@ border-bottom: 1px solid black;
   padding:50px;
   text-align:center;
   font-weight:bold;
-  background-color:rgb(255, 255, 153);
-  margin-top:-300px;
-
+  background-color: yellow;
 }
 
 #rating{
@@ -330,6 +328,8 @@ border-bottom: 1px solid black;
  .starButton:hover{
   color: #FFF684;
  }
+
+
 
 .tips {
     width: 0px;

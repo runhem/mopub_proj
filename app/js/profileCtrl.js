@@ -17,9 +17,10 @@ eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$wi
 
     //Removes egg from database and profile
      $scope.removeEgg = function(egg){
-    	console.log(egg)  
-    	//>>>Borde istället finnas en funktion i model så vi bara kan köra 
-    	//>>>>>>eggModel.remove(); härifrån
+     	//>>>>> FÅ ut eggets key på något sätt här 
+
+     	//>>>>> Sen in med egg.key i removeFromDatabase();
+    	eggModel.removeEggFromDatabase(egg); 
 
     	// Måste nog spara eggets KEY också i listan i början, så det kan 
     	// SKickas med som värde till den här funktionen 
