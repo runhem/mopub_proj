@@ -1,6 +1,6 @@
 eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$window){
 
-
+	eggModel.headerText = "Timer";
 	//Variables
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
@@ -9,34 +9,31 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 	//Timer function
 	$scope.startTimer = function (){
-	     $scope.$broadcast('timer-start');
-         $scope.timerRunning = true;
-         $scope.animate = true;
+	    $scope.$broadcast('timer-start');
+        $scope.timerRunning = true;
+        $scope.animate = true;
          
          //Detta används ej om vi kör på att byta sida för timer
    //       TweenMax.to('.animateEgg',2,{y:"+=400px"});
 		 // TweenMax.to('.animateText',0.01,{'opacity':'0'});
-		 
-		 document.getElementById('audio1').play();
-		 var t1 = new TimelineMax();
-		 
-		 //Animation for egg tips
-		 t1.from('#t1',0.1, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t1',15,{css:{'height':'100px'}});
-		 t1.to('#c1',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
-		 t1.to('#text1',0.001,{text:{value:"#Tips1: Did you know...", delimiter:" "},ease:Linear.easeNone});
-		 t1.from('#t2',0.1, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t2',6,{css:{'height':'100px'}});
-		 t1.to('#c2',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
-		 t1.to('#text2',0.001,{text:{value:"#Tips2: Did you know...", delimiter:" "},ease:Linear.easeNone});
-		 t1.from('#t3',0.1, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t3',6,{css:{'height':'100px'}});
-		 t1.to('#c3',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
-		 t1.to('#text3',0.001,{text:{value:"#Tips3: Did you know...", delimiter:" "},ease:Linear.easeNone});
-		 t1.from('#t4',0.1, {css:{'height':'0px', 'width':'5'}});
-		 t1.to('#t4',6,{css:{'height':'100px'}});
-		 t1.to('#c4',2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
-		 t1.to('#text4',0.001,{text:{value:"#Tips4: Did you know...", delimiter:" "},ease:Linear.easeNone});
+		
+		document.getElementById('audio1').play();
+
+		var t1 = new TimelineMax();
+
+		 //>>>>> Eventuellt ha i databas??? 
+		var tipsList = ["Tips #1: Lägg ett egg i en strumpa och skaka om innan kokning så får du ett 'scrambled egg'",
+		 				"Tips #2: Var varsam med dina ägg. De går lätt sönder.",
+		 				"Tips #3: Det är gott med ägg på hamburgare!",
+		 				"Tips #4: Lägg ägg i farfars skägg"]
+		
+		//animates tips in loop depending on how many tips there are in tipsList-array
+		for(i=1; i<tipsList.length+2; i++){
+		 	t1.from('#t'+i, 0.1, {css:{'height':'0px', 'width':'5'}});
+		 	t1.to("#t"+i,6,{css:{'height':'100px'}});
+			t1.to("#c"+i,2,{css:{'height':'40px','width':'40px', 'border-radius':'50%','opacity':'1'}});
+		 	t1.to("#text"+i,0.001,{text:{value:tipsList[i-1], delimiter:" "},ease:Linear.easeNone});
+		 }
     };
 
 

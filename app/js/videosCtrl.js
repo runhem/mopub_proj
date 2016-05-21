@@ -1,5 +1,6 @@
 eggApp.controller('videosCtrl', function($scope, eggModel){
 
+eggModel.headerText = "Egg videos";
 
 
 $scope.displayVideos = [];

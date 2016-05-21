@@ -3,7 +3,6 @@
     src: url(Buda-Light.ttf);
 }
 body{
-	background-color: #f2f2f2;
 	font-family: "Buda";
   overflow-x: hidden;
 }
@@ -57,9 +56,9 @@ border-bottom: 1px solid black;
 #opacityContent{  
   height: 600px;
   width: 400px;
-  background-color:rgb(255, 255, 153);
-  margin-top: -20px;
+  background-color:yellow;
   display: none;
+  opacity: 0.7;
 }
 
 /*Slide out part */
@@ -133,7 +132,7 @@ border-bottom: 1px solid black;
 .videos{
   width: 100%;
   height: 600px;
-  background-color:rgb(255, 255, 153);  
+  background-color:yellow;  
 }
 
 .eggVideos{
@@ -267,7 +266,7 @@ border-bottom: 1px solid black;
 }
 #ellipseEgg{
   fill: white;
-  stroke: grey;
+  stroke: black;
   stroke-width: 2px;
   cx: 160;
   cy: 80;
@@ -276,7 +275,7 @@ border-bottom: 1px solid black;
  }
 
 #circleEgg{
-  opacity: 0.4;
+  opacity: 0.7;
   z-index: -1;
   cx: 160;
   cy: 80;
@@ -311,7 +310,7 @@ border-bottom: 1px solid black;
 }
 
 #rating{
-  background-color: #FFF684;
+  background-color: yellow;
   text-align: center;
   margin-top: 70px;
 }

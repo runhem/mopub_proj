@@ -48,6 +48,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
 
   firebase.initializeApp(config);
 
+  this.headerText = "";
   this.ref = firebase.database().ref();
   this.allEggs = this.ref.child('eggbase');
   this.allUsers = this.ref.child('userbase');

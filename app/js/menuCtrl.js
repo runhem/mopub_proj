@@ -1,5 +1,6 @@
 eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
 
+  $scope.header = eggModel.headerText;
   //Default variables
 	$scope.userName = "";
   $scope.userPhoto = "images/profile.png";

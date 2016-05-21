@@ -1,6 +1,7 @@
 eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$window){
 
-
+	eggModel.headerText = "Set timer";
+	
 	//variable for storing current eggSize
 	$scope.eggSize = eggModel.returnEggSize();
 	console.log("eggSize", $scope.eggSize)
