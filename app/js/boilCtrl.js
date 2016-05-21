@@ -86,17 +86,7 @@ $scope.getEggTime = function(softness){
 // ------------- ÖVRIGT ------------------
 
 	//>>>>>>Funkar ej än men tanken är att den ska göra så header-texten uppdateras på nåt sätt 
-	$scope.setHeader = function(){
-		if($location.path() == "/timer"){
-			$scope.header = "Egg timer";
-		}
-		else if($location.path() == "/newegg"){
-			$scope.header = "New egg";
-		}
-		else if($loaction.path() == "/profile"){
-			$scope.header = "My eggs";
-		}
-	}
+
 
 });
 
