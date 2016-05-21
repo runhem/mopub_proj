@@ -7,16 +7,60 @@ body{
 	font-family: "Buda";
   overflow-x: hidden;
 }
-#container{
-	text-align: center;
+
+.container{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/*LOGIN IN PAGE */
+#startEgg{
+  background-color: yellow;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  margin-left: 50px;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 36px;
 }
 
-#header > h2{
-	text-align: center;
-	padding-top: 0px;
+#appName > h1{
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 50px;
 }
 
 /**** MENU ****/ 
+#menuHeader{
+height: 80px;
+width: 100%;
+background-color: white;
+border-bottom: 1px solid black;
+}
+#menu > a{
+  color: black;
+}
+#menu > a:hover{
+  color: yellow;
+}
+#menu > a > h2{
+  margin-left: 10px;
+}
+.activeMenu{
+    text-decoration: underline;
+}
+.toggle-button{
+  margin-left: -26px;
+}
+#opacityContent{  
+  height: 600px;
+  width: 400px;
+  background-color:rgb(255, 255, 153);
+  margin-top: -20px;
+  display: none;
+}
 
 /*Slide out part */
 .slideout-menu {
@@ -54,6 +98,9 @@ body{
 	margin-left: 0px;
   margin-bottom: 0px;
 }
+#burger{
+  margin-top: 5px;
+}
 #menu{
   background-color: white;
   border-right: 1px solid black;
@@ -77,13 +124,10 @@ body{
   width:70px;
   border-radius: 35px;
 }
-#myEggs{
-	padding-left: 10px;
-}
 
 
 /**** VIDEOS ****/
-.buttonCss{
+.categories{
   margin-left: 26px;
 }
 .videos{
@@ -119,8 +163,6 @@ body{
 .categoryButton:hover{
   background-color: yellow;
 }
-
-
 /*Line break between videos */
 #line{
 	background-color: black;
@@ -130,81 +172,164 @@ body{
   margin-left: -12px;
 }
 
-/**** NEW EGG ****/
+/**** NEW EGG PAGE ****/
 
-/* Egg */
-.egg{
-	border: 2px solid black;
-	border-radius: 50%;
-	background-color: white;
-	margin-bottom: 0px;
-}
-#smallEgg{
-    height: 80%;
-    width: 150px;
-    text-align: center;
-    margin-left: 27%;
-}
-#mediumEgg{
-  height: 90%;
-  width: 170px;
-  text-align: center;
-  margin-left: 25%;
-}
-#largeEgg{
+/*Är i html-filen, funkade inte annars med carousel grejen :( */
+
+
+
+/* PROFILE PAGE */
+#profileView{
   height: 100%;
-  width: 200px;
-  text-align: center;
-  margin-left: 22%;
-
-}
-#eggDiv{
-  height: 300px;
   width: 100%;
-  text-align: center;
-}
-.egg > h2{
-  text-align: center;
-  color: yellow;
-  font-size: 40px;
-  padding-top: 40%;
+  margin: 0;
+  padding: 0;
+  background-color: yellow;
 }
 
-/*Egg size */
-.sizeButton{
-  border: 1px solid black;
+#profile{
+  height:100%;
+  text-align: center;
+}
+
+.eggsContainer{
+  margin:0;
+  padding: 0;
+  background-color: yellow;
+}
+
+.eggRow{
+  margin-bottom:5px;
+  padding:0px;
+  border: 2px solid white;
+}
+
+.profileEgg{
   border-radius: 50%;
+  height: 50px;
+  width: 35px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.p-custom{
+  font-size: 18px;
+    padding-top: 10px;
+  margin-bottom:5px;
+  margin-top:5px;
+}
+
+.p-smaller-custom{
+  font-size: 12px;
+  margin:0px;
+}
+
+.row{
+  margin:0px;
+}
+
+.stari{
+  padding:0px;
+}
+
+.remove{
+  background-color: red;
+  border: none;
+  margin-top: 20px;
+  height: 30px;
+  width: 30px;
+  border-radius: 30%;
+}
+
+/* START BOIL PAGE */
+#startBoilView{
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  margin: 0;
+}
+
+#setTime{
+  width: 100%;
+  height: 150px;
+  padding-top: 10%;
+  background-color: yellow;
+  font-weight: bold;
+  text-align: center;
+}
+
+#eggTimer{
+  width: 210px;
+  height:400px;
+  margin-left: 5%;
+  margin-top: 20px;
+  z-index: -1;
+}
+#ellipseEgg{
+  fill: white;
+  stroke: grey;
+  stroke-width: 2px;
+  cx: 160;
+  cy: 80;
+  rx: 40;
+  ry: 60;
+ }
+
+#circleEgg{
+  opacity: 0.4;
+  z-index: -1;
+  cx: 160;
+  cy: 80;
+  r:20;
+  fill: yellow;
+}
+
+.animateText{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/*TIMER PAGE*/
+
+#countDown{
+  width: 100%;
+  height: 100px;
+  padding-top: 10%;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 4px solid yellow;
+}
+.saveEgg{
+  width: 400px;
+  border:3px;
+  border-radius:5px;
+  padding:50px;
+  text-align:center;
+  font-weight:bold;
+  background-color:rgb(255, 255, 153);
+  margin-top:-300px;
+
+}
+
+#rating{
+  background-color: #FFF684;
+  text-align: center;
+  margin-top: 70px;
+}
+ .starButton{
+  background: url('images/starWhite.png');
+  background-repeat: no-repeat;
+  background-size: 50px;
+  border: none;
+  font-size: 28px;
   width: 50px;
   height: 50px;
-  background-color: white;
-  text-align: center;
-  margin-right: 15px;
-}
-#buttons{
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  height: 5%;
+ }
 
-}
-#nextButton{
-  border: 1px solid black;
-  border-radius: 5%;
-  width: 100px;
-  height: 50px;
-  background-color: white;
-  text-align: center;
-  font-size: 18px;
-}
-button{
-  background-color: white;
-}
-/*Bottom of new egg page */
-#bottom{
-  height: 10%;
-}
-
-/*Timer stuff*/
+ .starButton:hover{
+  color: #FFF684;
+ }
 
 .tips {
     width: 0px;
@@ -240,31 +365,7 @@ button{
 
 }
 
-.saveEgg{
-  width: 400px;
-  border:3px;
-  border-radius:5px;
-  padding:50px;
-  text-align:center;
-  font-weight:bold;
-  background-color:rgb(255, 255, 153);
-  margin-top:-300px;
-
-}
-
-#countDown{
-  width: 400px;
-  height: 100px;
-  background-color:rgb(255, 255, 153);
-  padding-top: 10%;
-  font-weight: bold;
-  text-align: center;
-}
-
-.tipsQueue{
-  margin-top: -405px;
-}
-
+/*Denna används ej ?*/
 #finishText{
   margin-left: 108px;
   margin-top: -200px;

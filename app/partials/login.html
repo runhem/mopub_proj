@@ -1,27 +1,8 @@
-<!-- innehåller knapp för login, dagens tips --> 
-<!-- redirectar till antingen nytt egg eller till profilsida beroende på vad användaren har sedan tidigare --> 
+
 <!-- om redan inloggad gå till profil -->
 
-<style>
-#startEgg{
-	background-color: yellow;
-	border-radius: 50%;
-	height: 250px;
-	width: 250px;
-	margin-left: 50px;
-	padding-top: 100px;
-	text-align: center;
-	font-size: 36px;
-}
 
-#meddelande > h1{
-	text-align: center;
-	padding-top: 100px;
-	margin-bottom: 50px;
-}
-</style>
-
-<div id="meddelande">
+<div id="appName">
 	<h1>Shake that egg!</h1>
 	<div id="startEgg" ng-click="signIn()">
 		Sign in

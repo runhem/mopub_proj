@@ -1,50 +1,4 @@
-<style>
-a{
-	color: black;
-}
-
-a:hover{
-	color: yellow;
-}
-
-.activeMenu{
-    text-decoration: underline;
-}
-
-
-#menuHeader{
-height: 80px;
-background-color: white;
-padding-left: 0px;
-border-bottom: 1px solid black;
-margin-bottom: 20px;
-}
-
-.container{
-	padding-left: 0;
-	padding-right: 0;
-
-}
-
-a > h2{
-	margin-left: 10px;
-}
-
-.toggle-button{
-	margin-left: -26px;
-}
-
-#opacityContent{	
-	height: 600px;
-	width: 400px;
-	background-color:rgb(255, 255, 153);
-	margin-top: -20px;
-	display: none;
-}
-
-
-
-</style>
+<ng-include ng-controller="boilCtrl"></ng-include>
 <div id="menuHeader">
 	<nav id="menu" ng-init="initMenu()">
 		<div id="profileMenu">
@@ -61,10 +15,10 @@ a > h2{
 		 	<header>
 		 		<div class="col-xs-12">
 			 		<div class="col-xs-2">
-							<img class="toggle-button" id="burger" src="images/burgermenu.png" width="35px" height="35px">
+							<img class="toggle-button" id="burger" src="images/burgermenu.png" width="40px" height="40px">
 					</div>
 					<div class="col-xs-10">
-						<h1 style="margin-left:18px;">Scale egg</h1>
+						<h1 style="margin-left:18px;">{{header}}</h1>
 					</div>
 				</div>
 			</header>
@@ -72,6 +26,8 @@ a > h2{
 </div>
 <div id="opacityContent"></div>
 <script>
+
+//Försöka flytta till en controller sen
 	var slideout = new Slideout({
 	'panel': document.getElementById('panel'),
 	'menu': document.getElementById('menu'),

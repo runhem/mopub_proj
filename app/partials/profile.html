@@ -1,156 +1,51 @@
 <!-- Mina gamla ägg -->
 <!-- Val av gammalt ägg leder till timer --> 
 
-
-<style>
-.container{
-		padding:0px;
-		height: 100%;
-		width: 100%;
-		background-color: white;
-	}
-
-
-.eggFrame{
-		text-align: center;
-	}
-
-	.profileEgg{
-		border-radius: 50%;
-		height: 122px;
-		width: 91px;
-		background-color: white;
-		margin-left: 30px;
-		padding-top: 30%;
-	}
-
-
-	#panel{
-		background-color: white;
-		padding:10px;
-	}
-
-	#profile{
-		height:100%;
-		text-align: center;
-	}
-
-.chooseButton{
-	background-color: yellow;
-	border-radius: 50%;
-	border: none;
-	width: 50px;
-	height: 50px;
-	font-size: 12px;
-}
-
-.removeEgg{
-margin-right: 0;
-margin-left: 30px;
-margin-top: 5px;
-width: 25px;
-height: 25px;
-border: 1px solid black;
-background-color: white;
-
-}
-.border{
-	background-color: yellow;
-	margin-top: 20px;
-}
-
-.rating{
-	padding-bottom: 10px;
-}
-
-.eggRow{
-	margin-bottom:5px;
-	padding:0px;
-}
-
-#egg{
-	height:60px;
-	width:45px;
-	border-radius: 40px;
-	background-color: white;
-	margin-left:5px;
-	margin-bottom:5px;
-	margin-top:5px;
-    padding: 0px;
-    text-align: center;
-    padding-top: 7px;
-}
-
-.p-custom{
-	font-size: 18px;
-    padding-top: 10px;
-	margin-bottom:5px;
-	margin-top:5px;
-}
-
-.p-smaller-custom{
-	font-size: 12px;
-	margin:0px;
-}
-
-.row{
-	margin:0px;
-}
-
-.stari{
-	padding:0px;
-}
-
-</style>
-
-
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
-<!-- <h1>Your eggs</h1> -->
-<div id="profile" ng-init="checkMenu()">
-	<p>Choose one of your favorite eggs to cook again!</p>
-</div>
-<div class="col-xs-12" ng-init="initProfile()">
-	<div class="col-xs-12 eggRow" ng-click="boilAgain(egg.size, egg.boil)" ng-repeat="egg in eggs">
-		<div class="row">
-			<div class="col-xs-12" style="padding:0px; height: 60px;">
-				<p class="p-custom">{{egg.size}} egg with {{egg.boil}} boil </p>
+<div id="profileView">
+	<div id="profile" ng-init="checkMenu()">
+		<p>Choose one of your favorite eggs to cook again!</p>
+	</div>
+	<div class="col-xs-12 eggsContainer">
+		<div class="row eggRow" ng-repeat="egg in eggs">
+			<div class="col-xs-2 eggPic">
+				<div class="profileEgg"></div>
 			</div>
-		</div>
-
-	<div class="col-xs-12">
-		<div class="row">
-
-<!-- KANSKE EN FOR RATING IN EGG PÅ NÅGOT SÄTT?-->			
-			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
-			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
-			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
-			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>
-			<div class="col-xs-1 stari"><img src="images/starWhite.png" width="10px" height="10px"></div>			
-
-	<!-- LÄGGA DATUM I DATABASEN FÖR SPARAT EGG VORE JU NICE -->
-			<div class="col-xs-5"><p class="p-smaller-custom">25/05/2016</p></div>
-		</div>
-	</div>
-	</div>
-</div>
-
-<!-- 	<div class="row">
-		<div class="col-xs-6 eggFrame" ng-click="boilAgain()" ng-repeat="egg in eggs">
-			<div class="border">
-				{{egg.size}} and {{egg.boil}}<button class="removeEgg" type="button">X</button>
-					<div class="profileEgg">
-						<button class="chooseButton" type="button">Choose</button>
+			<div class="col-xs-8 eggInfo" ng-click="boilAgain(egg.size, egg.boil)">
+				<div class="col-xs-12">
+					<p class="p-custom">{{egg.size}} egg with {{egg.boil}} boil</p>
+				</div>
+				<div class="col-xs-12">
+		<!-- KANSKE EN FOR RATING IN EGG PÅ NÅGOT SÄTT?-->
+					<div class="col-xs-1 stari">
+						<img src="images/starWhite.png" width="10px" height="10px">
 					</div>
-					<div class="rating">
-						<img src="images/starWhite.png" width="20px" height="20px">
+					<div class="col-xs-1 stari">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>			
+			<!-- LÄGGA DATUM I DATABASEN FÖR SPARAT EGG VORE JU NICE -->
+					<div class="col-xs-6">
+						<p class="p-smaller-custom">25/05/2016</p>
 					</div>
 				</div>
 			</div>
-		</div> 
-	</div>-->
-
+			<div class="col-xs-2">
+				<button type="button" class="remove" ng-click="removeEgg(egg)">X</button>
+			</div>
+		</div>
+	</div>
 </div>
+
 
 
 

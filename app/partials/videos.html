@@ -1,21 +1,19 @@
 <!-- Visa videos på kategori, ratea videos -->
   <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 <div class="videos">
-<div id="chooseCategory" ng-init="checkMenu()">
-	<h4>Choose category:</h4>
-	<div class = "buttonCss">
-	<button class="categoryButton" type="button" id="science" ng-click="getVideo('science')">Science</button>
-	<button class="categoryButton" type="button" id="tutorial" ng-click="getVideo('tutorial')">Tutorial</button>
-	<button class="categoryButton" type="button" id="recipe" ng-click="getVideo('recipe')">Recipes</button>
-	<button class="categoryButton" type="button" id="decoration" ng-click="getVideo('decoration')">Decorations</button>
+	<div id="chooseCategory" ng-init="checkMenu()">
+		<h4>Choose category:</h4>
+		<div class = "categories">
+			<button class="categoryButton" type="button" id="science" ng-click="getVideo('science')">Science</button>
+			<button class="categoryButton" type="button" id="tutorial" ng-click="getVideo('tutorial')">Tutorial</button>
+			<button class="categoryButton" type="button" id="recipe" ng-click="getVideo('recipe')">Recipes</button>
+			<button class="categoryButton" type="button" id="decoration" ng-click="getVideo('decoration')">Decorations</button>
+		</div>
 	</div>
-</div>
-<!-- You can use 'youtube-video' as an element or attribute. -->
 
-<div class="eggVideos" ng-show="displayVideos" ng-repeat="video in displayVideos">	
-	<h2>{{video.title}}</h2>
-	<youtube-video video-id="video.id" style="width:auto;height:auto;"></youtube-video>
-	<div id="line"></div>
-</div>
-
+	<div class="eggVideos" ng-show="displayVideos" ng-repeat="video in displayVideos">	
+		<h2>{{video.title}}</h2>
+		<youtube-video video-id="video.id" style="width:auto;height:auto;"></youtube-video>
+		<div id="line"></div>
+	</div>
 </div>

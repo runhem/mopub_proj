@@ -1,55 +1,45 @@
 <!-- Välja mjukt till hårt. Genereras en tid. Knapp för starta timer --> 
 <!-- eyecandy! -->
 
-<!-- Save egg dyker upp. Ng-include -->
 
-<!-- <div class="col-md-12">
-<div id="slider" style="margin-top:20px;">
-  <input type="range" class="custom" min="6" max="10" step="0.5" style="width:200px;height:10px;color:black;">
-</div>
- -->
 
-<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
-
-<div id="countDown" style="text-align:center;">
-<timer id="timer" countdown="eggTime" interval="1000" autostart="fale">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
-<audio id="audio1" src="egg.m4a"></audio>
+	<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+<div id="countDown" ng-init="startTimer()">
+	<timer id="timer" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
+	<audio id="audio1" src="egg.m4a"></audio>
 </div>
 
-
-<div id="slider" ng-init="initTest()"></div>
-
-<svg width="210" height="400" ng-click="startTimer()" ng-disabled="timerRunning" style="margin-left:10%;z-index:-1;">
-		<ellipse class="animateEgg" cx="160" cy="80" rx="40" ry="60"
-  		style="fill:white;stroke:grey;stroke-width:2;"></ellipse>
-  		<circle class="animateEgg" cx="160" cy="80" r="20" fill="yellow" style="opacity:0.4;z-index:-1"></circle>
-  		<text class="animateText" x="130" y="80" style="font-size:10px;font-weight:bold;">START BOIL!</text>
-</svg>
 
 <div ng-show="wannaSave" class="saveEgg">
-	<p ng-init="initRating()">How was your egg?</p>
-	<button type="button" class="btn btn-default" ng-click="saveEgg()">Save egg</button>
+	<p>How was your egg?</p>
+	<div id="rating">
+		<button ng-click="saveEgg(1)" class="starButton" type="button">1</button>
+		<button ng-click="saveEgg(2)" class="starButton" type="button">2</button>
+		<button ng-click="saveEgg(3)" class="starButton" type="button">3</button>
+		<button ng-click="saveEgg(4)" class="starButton" type="button">4</button>
+		<button ng-click="saveEgg(5)" class="starButton" type="button">5</button>
+	</div>
 </div>
 
 
 <div class="tipsQueue" ng-show="animate">
-<div class="tips" id="t1"></div>
-<div class="circle" id="c1">
-<div class="tipsText" id="text1"></div></div>
-<div class="tips" id="t2"></div>
-<div class="circle" id="c2">
-<div class="tipsText" id="text2"></div></div>
-<div class="tips" id="t3"></div>
-<div class="circle" id="c3">
-<div class="tipsText" id="text3"></div></div>
-<div class="tips" id="t4"></div>
-<div class="circle" id="c4">
-<div class="tipsText" id="text4"></div></div>
+	<div class="tips" id="t1"></div>
+	<div class="circle" id="c1">
+		<div class="tipsText" id="text1"></div>
+	</div>
+	<div class="tips" id="t2"></div>
+	<div class="circle" id="c2">
+		<div class="tipsText" id="text2"></div>
+	</div>
+	<div class="tips" id="t3"></div>
+	<div class="circle" id="c3">
+		<div class="tipsText" id="text3"></div>
+	</div>
+	<div class="tips" id="t4"></div>
+	<div class="circle" id="c4">
+		<div class="tipsText" id="text4"></div>
+	</div>
 </div>
-
-
-
-
 
 
 

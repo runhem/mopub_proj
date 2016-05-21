@@ -5,11 +5,11 @@ eggApp.config(['$routeProvider',
     $routeProvider.
       when('/profile', {
         templateUrl: 'partials/profile.html',
-        controller: 'boilCtrl'
+        controller: 'profileCtrl'
          }).
         when('/timer', {
           templateUrl: 'partials/timer.html',
-          controller: 'boilCtrl'
+          controller: 'timerCtrl'
         }).
         when('/videos', {
           templateUrl: 'partials/videos.html',
@@ -21,11 +21,15 @@ eggApp.config(['$routeProvider',
         }).
         when('/newegg', {
           templateUrl: 'partials/newegg.html',
-          controller: 'boilCtrl'
+          controller: 'newEggCtrl'
         }).
         when('/login', {
           templateUrl: 'partials/login.html',
           controller: 'loginCtrl'
+        }).
+        when('/startBoil', {
+          templateUrl: 'partials/startBoil.html',
+          controller: 'boilCtrl'
         }).
       otherwise({
         redirectTo:'/login'
@@ -49,8 +53,10 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   this.allUsers = this.ref.child('userbase');
   this.allVideos = this.ref.child('videobase');
   
+  var profile = {"eggSize": "small", "softness": "medium", "eggTime" : 0, "rating": 0};
   this.loggedIn
-  this.eggSizeNow
+
+  var eggs = [];
 
   var auth = firebase.auth();
 
@@ -109,14 +115,71 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
     return firebase.auth().currentUser.uid;
   };
 
-  this.returnEggs = function(){
-    console.log("Loggedin", this.loggedIn)
-    return this.loggedIn.child('egg');
+
+  //Fetches all eggs from database and stores it in eggs-array
+  this.fetchEggs = function(){
+  this.loggedIn.child('egg').on("value", function(snapshot){
+      snapshot.forEach(function(childSnapshot){
+      eggs.push({'boil':childSnapshot.child('boil').val(),
+                'size':childSnapshot.child('size').val(),
+                'rating':childSnapshot.child('rating').val()
+              })
+        })
+    })
   }
 
-  this.returnEggSize = function(){
-    return this.eggSizeNow;
+  this.returnEggs = function(){
+      return eggs;
   }
+
+//Josmol har lagt till 
+
+  //Adds the current Boil-softness to profile
+  this.addSoftnessToProfile = function(softness){
+    profile.softness = softness;
+  }
+
+  //Adds the current egg-size to profile
+  this.addSizeToProfile = function(size){
+    profile.eggSize = size;
+  }
+
+  //Adds cooking-Time to Profile 
+  this.addTimeToProfile = function(time){
+    profile.eggTime = time;
+  }
+
+  //Adds the current Rating to profile
+  this.addRatingToProfile = function(rating){
+    profile.rating = rating;
+  }
+
+  //Returns current EggSize to fetch to controller when needed
+  this.returnEggSize = function(){
+    return profile.eggSize;
+  }
+
+  //Returns current Boil-softness to fetch to controller when needed 
+  this.returnSoftness = function(){
+    return profile.softness;
+  }
+
+  //Returns cooking-time for current egg, so can be fetched to controller when needed 
+  this.returnEggTime = function(){
+    return profile.eggTime;
+  }
+
+  //Returns the current egg-rating to fetch to controller when needed 
+  this.returnRating = function(){
+    return profile.rating;
+  }
+
+  //Removes egg from database
+  this.removeEggFromDatabase = function(){
+    //Ska ta bort egg från firebase
+    //Vet ej hur man gör :(
+  }
+
 
   return this
 

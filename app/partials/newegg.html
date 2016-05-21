@@ -1,72 +1,52 @@
 <!-- Välj eggstorlek -->
 
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
-<!-- <div id="container">
-  
-  <div id="header">
-    <h1>Scale your egg</h1>
-  </div>
-  
-  <div id="eggDiv">
-    <div id="smallEgg" class="egg">
-      <h2>Small</h2>
-    </div>
-    <div id="mediumEgg" class="egg">
-      <h2>Medium</h2>
-    </div>
-    <div id="largeEgg" class="egg">
-      <h2>Large</h2>
-    </div>
-  </div>
-  
-  <div id="buttons">
-      <button class="sizeButton" ng-click="changeSize('small')">S</button>
-      <button class="sizeButton" ng-click="changeSize('medium')">M</button>
-      <button class="sizeButton" ng-click="changeSize('large')">L</button>
-  </div>
-  
-  <div id="bottom">
-  	<a href="#/timer"><button id="nextButton" href="#/timer">Next</button></a>
-  </div>
 
-</div> -->
-  <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
 
-    <div class="carousel-inner" role="listbox">
-      <div class="item active" id="small"><div class="eggi">Small</div></div>
-      <div class="item" id="medium"><div class="eggi">Medium</div></div>
-      <div class="item" id="large"><div class="eggi">Large</div></div>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active" id="small">
+      <div class="egg">Small</div>
     </div>
-    <!-- Controls -->
-    <span class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </span>
-    <span class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </span>
+    <div class="item" id="medium">
+      <div class="egg">Medium</div>
+    </div>
+    <div class="item" id="large">
+      <div class="egg">Large</div>
+    </div>
   </div>
-  <div id="footer">
-    <button id="select" type="button" ng-click="selectSize()">SELECT</button>
-  </div>
+  <!-- Controls -->
+  <span class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </span>
+  <span class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </span>
+</div>
+<div id="selectSection">
+  <button id="selectButton" type="button" ng-click="selectSize()">SELECT</button>
+</div>
 
 
 <style>
 .container{
-  background-color: yellow;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-#header{
-  text-align: center;
+#carousel-example-generic{
+  background-color: yellow;
 }
+
 .carousel-control.left{
   background-image: none;
 }
@@ -95,22 +75,25 @@
     position:relative; /* Put me here! */
     font-size: 36px;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
-.eggi{
+.egg{
     height: 315px;
     width: 225px;
     background:white;
     border-radius: 50%;
     margin-left: 75px;
     padding-top: 130px;
+    margin-top: 10px;
 }
-#footer{
+#selectSection{
   background-color: yellow;
   height: 200px;
   text-align: center;
 }
 
-#select{
+#selectButton{
   border: 2px solid black;
   background-color: white;
   height: 65px;
@@ -119,8 +102,6 @@
   margin-top: 20px;
 }
 </style>
-
-
 
 
 
