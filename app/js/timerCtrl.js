@@ -53,16 +53,10 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 		$scope.timerRunning = false;
 		};
 
-	$scope.resumeTimer = function(){
-		$scope.$broadcast('timer-resume');
-
-	}	
-        $scope.$on('timer-resume', function () {
-          console.log("hejeje")
-        });
-
  	$scope.operation = 'start';
+
     $scope.startStop = function(){
+
     document.getElementById('timer')[$scope.operation]();
     $scope.operation = ($scope.operation === 'start' || $scope.operation === 'resume') ? 'stop' : 'resume';
     if($scope.operation === 'stop'){
@@ -97,14 +91,15 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
     }
   }
 
-	// $scope.$on('timer-stopped', function (event, data){
-	// 	console.log("inne i timer stopped")
-	// 	$scope.wannaSave = true;
-	// 	TweenLite.to('#finishText', 0.001, {text:{value:"YOUR EGG IS DONE!", delimiter:" "}, ease:Linear.easeNone});
-	// 	TweenMax.to('#audio1', 2, {'volume':0}, "-=1");
-	// 	TweenMax.to('.tipsQueue',1,{opacity:0});
-	// 	TweenMax.to('#countDown',1,{opacity:0});
-	// });       
+	$scope.$on('timer-stopped', function (event, data){
+		console.log("inne i timer stopped")
+		$scope.wannaSave = true;
+		$scope.$apply();
+		TweenLite.to('#finishText', 0.001, {text:{value:"YOUR EGG IS DONE!", delimiter:" "}, ease:Linear.easeNone});
+		TweenMax.to('#audio1', 2, {'volume':0}, "-=1");
+		TweenMax.to('.tipsQueue',1,{opacity:0});
+		TweenMax.to('#countDown',1,{opacity:0});
+	});       
 
 
 	//Variable used to display saving buttons when set to true
@@ -123,6 +118,7 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	}
 //Saves the egg after cooking
 	$scope.saveEgg = function(rating){
+		console.log(rating)
 		var eggSize = eggModel.returnEggSize();
 		var boil = eggModel.returnSoftness();
 
