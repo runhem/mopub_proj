@@ -1,6 +1,5 @@
 eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$window){
 
-	eggModel.headerText = "Profile";
 	//Array for storing all the users eggs so they can be displayed in profile 
 	eggModel.fetchEggs();
 	$scope.eggs = eggModel.returnEggs();

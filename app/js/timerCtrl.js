@@ -1,6 +1,5 @@
 eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$window){
 
-	eggModel.headerText = "Timer";
 	//Variables
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
