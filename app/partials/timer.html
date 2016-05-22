@@ -1,5 +1,18 @@
 <!-- Välja mjukt till hårt. Genereras en tid. Knapp för starta timer --> 
 <!-- eyecandy! -->
+<style>
+	.start::before{
+	  content:"Start";
+	}
+	.stop::before{
+	  content:"Stop";
+	  background-color: red;
+	}
+	.resume::before{
+	  content:"Resume";
+	  background-color: green;
+	}
+</style>
 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 <div id="countDown">
@@ -9,8 +22,7 @@
 		<source src="egg.mp3" type="audio/mp3">
 	</audio>
 	<div id="stopTimer">
-		<button class="timerButton" id="start" ng-hide="timerRunning" ng-click="startTimer()"> START </button>
-		<!-- <button class="timerButton" id="stop" ng-show="timerRunning" ng-click="stopTimer()">STOP</button> -->
+		<button class="timerButton"  ng-click="startStop()" ng-class="{start:operation==='start', stop:operation==='stop', resume:operation==='resume'}"></button>
 	</div>
 </div>
 
@@ -48,6 +60,14 @@
 	<div class="tips" id="t4"></div>
 	<div class="circle" id="c4">
 		<div class="tipsText" id="text4"></div>
+	</div>
+		<div class="tips" id="t5"></div>
+	<div class="circle" id="c5">
+		<div class="tipsText" id="text5"></div>
+	</div>
+		<div class="tips" id="t6"></div>
+	<div class="circle" id="c6">
+		<div class="tipsText" id="text6"></div>
 	</div>
 
 </div>
