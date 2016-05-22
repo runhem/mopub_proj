@@ -56,8 +56,6 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   var profile = {"eggSize": "small", "softness": "medium", "eggTime" : 0, "rating": 0};
   this.loggedIn
 
-  var eggs = [];
-
   var auth = firebase.auth();
 
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -118,18 +116,17 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
 
   //Fetches all eggs from database and stores it in eggs-array
   this.fetchEggs = function(){
+  var eggs = [];
   this.loggedIn.child('egg').on("value", function(snapshot){
       snapshot.forEach(function(childSnapshot){
       eggs.push({'boil':childSnapshot.child('boil').val(),
                 'size':childSnapshot.child('size').val(),
-                'rating':childSnapshot.child('rating').val()
+                'rating':childSnapshot.child('rating').val(),
+                'eggid':childSnapshot.key
               })
         })
     })
-  }
-
-  this.returnEggs = function(){
-      return eggs;
+  return eggs
   }
 
 //Josmol har lagt till 
@@ -177,17 +174,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   //Removes egg from database
   this.removeEggFromDatabase = function(item){
     console.log("i remove")
-    //Ska ta bort egg från firebase
-    //Vet ej hur man gör :(
-    this.loggedIn.child('egg').on("value", function(snapshot){
-      snapshot.forEach(function(childSnapshot){
-        //Istället kolla om key = key
-        if(childSnapshot.val() == item){
-          //remove
-        }
-        else{ console.log("not to remove")}
-        })
-    })
+    this.loggedIn.child('egg').child(item).remove()
   }
 
   return this

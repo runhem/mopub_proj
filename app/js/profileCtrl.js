@@ -1,8 +1,7 @@
 eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$window){
 
 	//Array for storing all the users eggs so they can be displayed in profile 
-	eggModel.fetchEggs();
-	$scope.eggs = eggModel.returnEggs();
+	$scope.eggs = eggModel.fetchEggs();
 
 	//Function that sends us to timer with the values of the egg that was clicked 
 	//The timer then starts for that egg 
@@ -17,14 +16,9 @@ eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$wi
 
     //Removes egg from database and profile
      $scope.removeEgg = function(egg){
-     	//>>>>> FÅ ut eggets key på något sätt här 
-
-     	//>>>>> Sen in med egg.key i removeFromDatabase();
-    	eggModel.removeEggFromDatabase(egg); 
-
-    	// Måste nog spara eggets KEY också i listan i början, så det kan 
-    	// SKickas med som värde till den här funktionen 
-    	// sen ba eggModel.allEggs.child(key).remove(); antagligen! 
+     	console.log(egg)
+     	eggModel.removeEggFromDatabase(egg.eggid);
+     	$scope.eggs = eggModel.fetchEggs();
     };
 
 });
