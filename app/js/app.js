@@ -39,6 +39,8 @@ eggApp.config(['$routeProvider',
 
 eggApp.factory('eggModel',function ($resource, $rootScope) {
 
+// Initializing firebase 
+
   var config = {
     apiKey: "AIzaSyC5UNcs8CVnpX5xDPs7cWVTfpLEO8pZJ_Q",
     authDomain: "eggapp.firebaseapp.com",
@@ -47,17 +49,16 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   };
 
   firebase.initializeApp(config);
-
   this.ref = firebase.database().ref();
+
+// Creating reference to branches in database 
   this.allEggs = this.ref.child('eggbase');
   this.allUsers = this.ref.child('userbase');
   this.allVideos = this.ref.child('videobase');
   
-  var profile = {"eggSize": "small", "softness": "medium", "eggTime" : 0, "rating": 0};
-  this.loggedIn
 
+// Firebase authorisation through google login
   var auth = firebase.auth();
-
   var provider = new firebase.auth.GoogleAuthProvider();
 
   this.signIn = function(){ 
@@ -73,8 +74,10 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
     });
   };
 
+// Setting authorised user in database
   this.setLoggedUser = function(userbaseId){
     this.loggedIn = this.allUsers.child(userbaseId);
+    $rootScope.$broadcast('userSetLogged')
   };
 
   this.returnUser = function(){
@@ -87,6 +90,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
 
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    console.log("user")
     $rootScope.$broadcast('userLoggedIn');
  //   this.setLoggedUser()
   } else {
@@ -95,6 +99,9 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
     this.loggedIn 
   }
   });
+
+  var profile = {"eggSize": "small", "softness": "medium", "eggTime" : 0, "rating": 0};
+  this.loggedIn
 
   this.returnEmail = function(){
       console.log(firebase.auth().currentUser.email);
@@ -122,6 +129,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
       eggs.push({'boil':childSnapshot.child('boil').val(),
                 'size':childSnapshot.child('size').val(),
                 'rating':childSnapshot.child('rating').val(),
+                'date':childSnapshot.child('date').val(),
                 'eggid':childSnapshot.key
               })
         })

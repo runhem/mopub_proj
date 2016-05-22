@@ -4,7 +4,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
 	$scope.userName = "";
   $scope.userPhoto = "images/profile.png";
   $scope.path = $location.$$path;
-  $scope.header = 'hej';
+  $scope.header = '';
 
   //Init for the menu, sets up username and photo in menu
   $scope.initMenu = function(){
@@ -12,15 +12,24 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
   		$scope.userName = eggModel.returnName();	
       $scope.userPhoto = eggModel.returnPhoto();	
   	}
-    $scope.setHeader()
+
+    $scope.setHeader();
   };
 
   //If user is logged in the photo and username are always to be displayed in menu
 	$scope.$on('userLoggedIn', function(){
-	  	$scope.userName = eggModel.returnName();
-      $scope.userPhoto = eggModel.returnPhoto();
-	  	$scope.$apply();	
-  	});
+     var uid = eggModel.returnUid()
+    eggModel.allUsers.on("value", function(snapshot){
+      snapshot.forEach(function(childSnapshot){
+        if(childSnapshot.child('uid').val() === uid){
+          eggModel.setLoggedUser(childSnapshot.key)
+          $scope.userName = eggModel.returnName();
+          $scope.userPhoto = eggModel.returnPhoto();
+          $scope.$apply();  
+        }
+      })
+    });
+  });
 
   //Closes the menu of path changes
   $scope.$on('$routeChangeStart', function() { 
@@ -29,37 +38,37 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
       slideout.close();
      }; 
   });
-
+  
     //Function for signing out
-  	$scope.signOut = function(){
-  		eggModel.signOut();
-  	};
+  $scope.signOut = function(){
+		eggModel.signOut();
+  };
 
     //Redirects to login-page if user is logged out
-  	$scope.$on('userLoggedOut', function(){
-      $location.path('/login');  
-      $scope.$apply()  
-      $scope.userName = "";
-      $scope.userPhoto = "images/profile.png";
-  	});
+  $scope.$on('userLoggedOut', function(){
+    $location.path('/login');  
+    $scope.$apply()  
+    $scope.userName = "";
+    $scope.userPhoto = "images/profile.png";
+  });
 
-      $scope.setHeader = function(){
-      if($location.path() == "/timer"){
-        $scope.header = "Timer";
-        }
-      else if($location.path() == "/newegg"){
-        $scope.header = "New egg";
-        }
-      else if($location.path() == "/profile"){
-        $scope.header = "My eggs";
-        }
-      else if($location.path() == "/videos"){
-        $scope.header = "Videos";
-        }
-      else if($location.path() == "/startBoil"){
-        $scope.header = "Set boil";
-        }
-      };
+  $scope.setHeader = function(){
+    if($location.path() == "/timer"){
+      $scope.header = "Timer";
+      }
+    else if($location.path() == "/newegg"){
+      $scope.header = "New egg";
+      }
+    else if($location.path() == "/profile"){
+      $scope.header = "My eggs";
+      }
+    else if($location.path() == "/videos"){
+      $scope.header = "Videos";
+      }
+    else if($location.path() == "/startBoil"){
+      $scope.header = "Set boil";
+      }
+  };
 
 });
 

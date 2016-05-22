@@ -3,8 +3,8 @@
 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
-<div id="profileView">
-	<div id="profile" ng-init="checkMenu()">
+<div id="profileView" ng-init="initProfile()">
+	<div id="profile">
 		<p>Choose one of your favorite eggs to cook again!</p>
 	</div>
 	<div class="col-xs-12 eggsContainer">
@@ -35,7 +35,7 @@
 					</div>			
 			<!-- LÄGGA DATUM I DATABASEN FÖR SPARAT EGG VORE JU NICE -->
 					<div class="col-xs-6">
-						<p class="p-smaller-custom">25/05/2016</p>
+						<p class="p-smaller-custom">{{egg.date}}</p>
 					</div>
 				</div>
 			</div>

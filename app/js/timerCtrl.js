@@ -14,6 +14,7 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	// 	$scope.animate = false;
 	// 	document.getElementById('audio1').pause();
 	// }
+	
 	//Timer function
 	$scope.startTimer = function (){
 	    $scope.$broadcast('timer-start');
@@ -76,7 +77,16 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	$scope.saveEgg = function(rating){
 		var eggSize = eggModel.returnEggSize();
 		var boil = eggModel.returnSoftness();
-		eggModel.loggedIn.child('egg').push({'size': eggSize, 'boil':boil, 'rating': rating});
+
+		var currentDate = new Date()
+		var day = currentDate.getDate()
+		var month = currentDate.getMonth()
+		var year = currentDate.getFullYear()
+		var date = day + "/" + month + "/" + year
+
+		eggModel.loggedIn.child('egg').push({'size': eggSize, 'boil':boil, 'rating': rating, 'date':date});
+		$location.path("/profile");
+
 	};
 
 
