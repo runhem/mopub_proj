@@ -50,13 +50,9 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 //Saves the egg after cooking
 	$scope.saveEgg = function(rating){
-		//>>>>> Istället här: 
-		//>>>>> Kalla på funktion i app som gör "add Rating" till profile
-		//>>>>> Och sedan en eggModel.saveEgg som kanske kan pusha hela profile till databasen?
-		//>>>>> om vi får den att stämma överens (se ut som nedan?)
-		//>>>>> I så fall kan vi ta bort 'time' från profile så ser den ju ut som nedan (om vi också döper om 'eggSize' och 'softness' till detta)
-		//>>>>> möjligtvis om även profile ska tömmas sen bara för att vara säkra på att vi inte råkar få in felaktiga ägg
-		eggModel.loggedIn.child('egg').push({'size': $scope.eggSize, 'boil': $scope.boil, 'rating': rating});
+		var eggSize = eggModel.returnEggSize();
+		var boil = eggModel.returnSoftness();
+		eggModel.loggedIn.child('egg').push({'size': eggSize, 'boil':boil, 'rating': rating});
 	};
 
 
