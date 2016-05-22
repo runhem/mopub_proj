@@ -6,7 +6,9 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 <div id="countDown" ng-init="startTimer()">
 	<timer id="timer" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
-	<audio id="audio1" src="egg.m4a"></audio>
+	<audio id="audio1" autoplay preload loop>
+		<source src="egg.mp3" type="audio/mp3">
+	</audio>
 </div>
 
 

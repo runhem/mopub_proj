@@ -16,7 +16,9 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
    //       TweenMax.to('.animateEgg',2,{y:"+=400px"});
 		 // TweenMax.to('.animateText',0.01,{'opacity':'0'});
 		
-		document.getElementById('audio1').play();
+		// var music = document.getElementById('audio1');
+		// music.play();
+		// music.loop = true;
 
 		var t1 = new TimelineMax();
 
