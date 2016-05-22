@@ -1,8 +1,6 @@
 <!-- Välja mjukt till hårt. Genereras en tid. Knapp för starta timer --> 
 <!-- eyecandy! -->
 
-
-
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 <a href="#/startBoil" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a>
 
@@ -18,8 +16,12 @@
 </div>
 
 <div ng-show="wannaSave" class="saveEgg">
-	<p>How was your egg?</p>
-	<div id="rating">
+	<div id="saveOptions" ng-show="chooseSave">
+		<button class="saveButtons" ng-click="showRating()">SAVE</button>
+		<button class="saveButtons" ng-click="dontSave()">DON'T SAVE</button>
+	</div>
+	<div id="rating" ng-show="rating">
+		<p>Rate your egg before saving</p>
 		<button ng-click="saveEgg(1)" class="starButton" type="button">1</button>
 		<button ng-click="saveEgg(2)" class="starButton" type="button">2</button>
 		<button ng-click="saveEgg(3)" class="starButton" type="button">3</button>

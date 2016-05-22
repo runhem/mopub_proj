@@ -1,5 +1,6 @@
 eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$window){
 
+
 	//Variables
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
@@ -52,6 +53,21 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 		TweenMax.to('#countDown',1,{opacity:0});
 	});       
 
+
+	//Variable used to display saving buttons when set to true
+	$scope.chooseSave = true;
+	//Sets variables needed for displaying rating
+	$scope.showRating = function(){
+		$scope.rating = true;
+		$scope.chooseSave = false;
+	}
+
+	//Function that is called when don't save egg is chosen.
+	//Should clear the egg-profile and the redirect to 'my eggs'(?) or 'new egg'(?)
+	$scope.dontSave = function(){
+		console.log("Don't save egg!")
+		//Should clear profile
+	}
 //Saves the egg after cooking
 	$scope.saveEgg = function(rating){
 		var eggSize = eggModel.returnEggSize();
