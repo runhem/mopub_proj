@@ -82,6 +82,10 @@ $scope.getEggTime = function(softness){
       }); 
     };
 
+
+$scope.goToTimer = function(){
+	$location.path("/timer");
+}
 // ------------- ÖVRIGT ------------------
 
 	//>>>>>>Funkar ej än men tanken är att den ska göra så header-texten uppdateras på nåt sätt 

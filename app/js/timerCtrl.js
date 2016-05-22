@@ -7,11 +7,13 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	$scope.animate = false;
 	$scope.eggTime = eggModel.returnEggTime();
 
-	$scope.stopTimer = function(){
-		$scope.timmerRunning = false;
-		$scope.animate = false;
-		document.getElementById('audio1').pause();
-	}
+	// $scope.stopTimer = function(){
+	// 	$scope.timerRunning = false;
+
+	// 	console.log("stop",$scope.timerRunning )
+	// 	$scope.animate = false;
+	// 	document.getElementById('audio1').pause();
+	// }
 	//Timer function
 	$scope.startTimer = function (){
 	    $scope.$broadcast('timer-start');
@@ -28,10 +30,12 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 		var t1 = new TimelineMax();
 
 		 //>>>>> Eventuellt ha i databas??? 
-		var tipsList = ["Tips #1: Lägg ett egg i en strumpa och skaka om innan kokning så får du ett 'scrambled egg'",
-		 				"Tips #2: Var varsam med dina ägg. De går lätt sönder.",
-		 				"Tips #3: Det är gott med ägg på hamburgare!",
-		 				"Tips #4: Lägg ägg i farfars skägg"]
+		var tipsList = ["Tip #1: Put your egg in a sock and spin it before boiling and you will have a scramled egg!",
+		 				"Tip #2: Be gentle with your eggs. They break very easy!",
+		 				"Tip #3: Try putting an egg on your next hamburger! Yummie!",
+		 				"Tip #4: Eggs stay fresh longer if your store them in the fridge!",
+		 				"Tip #5: Putting a spoon in the pot while boiling help the egg not to break!", 
+		 				"Tip #6: Put salt in the water when boiling to prevent the egg to spread if it breaks"]
 		
 		//animates tips in loop depending on how many tips there are in tipsList-array
 		for(i=1; i<tipsList.length+2; i++){

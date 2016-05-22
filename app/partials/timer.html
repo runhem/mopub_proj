@@ -2,21 +2,23 @@
 <!-- eyecandy! -->
 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
-<a href="#/startBoil" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a>
-
-<div id="countDown" ng-init="startTimer()">
-	<timer id="timer" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
+<div id="countDown">
+	<a href="#/startBoil" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a><br/></br>
+	<timer id="timer" autostart="false" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
 	<audio id="audio1" preload loop>
 		<source src="egg.mp3" type="audio/mp3">
 	</audio>
 	<div id="stopTimer">
-	<button id="stop" ng-show="animate" ng-click="stopTimer()">STOP</button>
-	<button id="continue" ng-hide="animate" ng-click="startTimer()">CONTINUE</button>
+		<button class="timerButton" id="start" ng-hide="timerRunning" ng-click="startTimer()"> START </button>
+		<!-- <button class="timerButton" id="stop" ng-show="timerRunning" ng-click="stopTimer()">STOP</button> -->
+	</div>
 </div>
-</div>
+
+
 
 <div ng-show="wannaSave" class="saveEgg">
 	<div id="saveOptions" ng-show="chooseSave">
+		<p>Your egg is finished!</p>
 		<button class="saveButtons" ng-click="showRating()">SAVE</button>
 		<button class="saveButtons" ng-click="dontSave()">DON'T SAVE</button>
 	</div>
@@ -30,8 +32,6 @@
 	</div>
 </div>
 
-
-<!-- Tänker typ att detta skulle kunna vara en egen view, då skulle vi kunna ge den en egen header som heter "Rate egg" eller nåt. Kanske också går ändå med någon funktion som kallas på här som ändrar eggModel.headerText -->
 <div class="tipsQueue" ng-show="animate">
 	<div class="tips" id="t1"></div>
 	<div class="circle" id="c1">
@@ -49,7 +49,7 @@
 	<div class="circle" id="c4">
 		<div class="tipsText" id="text4"></div>
 	</div>
-</div>
 
+</div>
 
 

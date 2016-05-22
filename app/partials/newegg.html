@@ -13,13 +13,13 @@
 
   <div class="carousel-inner" role="listbox">
     <div class="item active" id="small">
-      <div class="egg">Small</div>
+      <div class="egg" id="smallEgg">Small</div>
     </div>
     <div class="item" id="medium">
-      <div class="egg">Medium</div>
+      <div class="egg" id="mediumEgg">Medium</div>
     </div>
     <div class="item" id="large">
-      <div class="egg">Large</div>
+      <div class="egg" id="largeEgg">Large</div>
     </div>
   </div>
   <!-- Controls -->
@@ -30,18 +30,12 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
   </span>
 </div>
-<div id="selectSection">
-  <button id="selectButton" type="button" ng-click="selectSize()">SELECT</button>
+<div class="selectSection">
+  <button class="selectButton" type="button" ng-click="selectSize()">SELECT</button>
 </div>
 
 
 <style>
-.container{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 #carousel-example-generic{
   background-color: yellow;
@@ -72,35 +66,38 @@
     height:370px;
     width:350px;
     float:left;
-    position:relative; /* Put me here! */
+    position:relative;
     font-size: 36px;
     text-align: center;
     margin: 0;
     padding: 0;
 }
+
 .egg{
-    height: 315px;
-    width: 225px;
-    background:white;
-    border-radius: 50%;
-    margin-left: 75px;
-    padding-top: 130px;
-    margin-top: 10px;
-}
-#selectSection{
-  background-color: yellow;
-  height: 200px;
-  text-align: center;
+  background-color: white;
+  border-radius: 50%;
+  margin-top: 10px;
 }
 
-#selectButton{
-  border: 2px solid black;
-  background-color: white;
-  height: 65px;
-  width: 214px;
-  font-size: 36px;
-  margin-top: 20px;
+#largeEgg{
+    height: 315px;
+    width: 225px;
+    margin-left: 75px;
+    padding-top: 130px;
 }
+#mediumEgg{
+  height: 295px;
+  width: 205px;
+  margin-left: 85px;
+  padding-top: 120px;
+}
+#smallEgg{
+  height: 275px;
+  width: 185px;
+  margin-left: 95px;
+  padding-top: 110px;
+}
+
 </style>
 
 

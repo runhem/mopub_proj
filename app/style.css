@@ -12,12 +12,13 @@ body{
   height: 100%;
   margin: 0;
   padding: 0;
+  padding: auto;
 }
 
 /* back button */
 .backButton{
-  margin-left: 10px;
-  padding-top: 20px;
+  margin-left: 0px;
+  margin-top: 0px;
 }
 
 /*LOGIN IN PAGE */
@@ -40,10 +41,11 @@ body{
 
 /**** MENU ****/ 
 #menuHeader{
+padding-top: 10px;
 height: 80px;
 width: 100%;
 background-color: white;
-border-bottom: 1px solid black;
+border-bottom: 2px solid black;
 }
 #menu > a{
   color: black;
@@ -158,8 +160,7 @@ border-bottom: 1px solid black;
 /* Categories */
 .categoryButton{
 	background-color: white;
-	border: 1px solid black;
-	border-radius: 10px;
+	border: 2px solid black;
 	height: 40px;
 	width: auto;
 	font-size: 16px;
@@ -167,7 +168,7 @@ border-bottom: 1px solid black;
 }
 
 .categoryButton:hover{
-  background-color: yellow;
+  text-decoration: underline;
 }
 /*Line break between videos */
 #line{
@@ -180,6 +181,21 @@ border-bottom: 1px solid black;
 
 /**** NEW EGG PAGE ****/
 
+.selectSection{
+  background-color: yellow;
+  height: 300px;
+  text-align: center;
+}
+
+.selectButton{
+  border: 2px solid black;
+  background-color: white;
+  height: 65px;
+  width: 214px;
+  font-size: 36px;
+  margin-top: 20px;
+}
+
 /*Är i html-filen, funkade inte annars med carousel grejen :( */
 
 
@@ -188,7 +204,6 @@ border-bottom: 1px solid black;
 #profileView{
   height: 100%;
   width: 100%;
-  margin: 0;
   padding: 0;
   background-color: yellow;
 }
@@ -198,6 +213,13 @@ border-bottom: 1px solid black;
   text-align: center;
 }
 
+#profile > p{
+  padding-top: 20px;
+  height: 60px;
+  border-bottom: 2px solid black;
+  font-size: 16px;
+  background-color: white;
+}
 .eggsContainer{
   margin:0;
   padding: 0;
@@ -207,11 +229,13 @@ border-bottom: 1px solid black;
 .eggRow{
   margin-bottom:5px;
   padding:0px;
-  border: 2px solid white;
+  border-bottom: 2px solid black;
+  margin: 10px;
 }
 
 .profileEgg{
   border-radius: 50%;
+  border: 1px solid black;
   height: 50px;
   width: 35px;
   background-color: white;
@@ -239,31 +263,35 @@ border-bottom: 1px solid black;
 }
 
 .remove{
-  background-color: red;
-  border: none;
+  background-color: white;
+  border: 1px solid black;
   margin-top: 20px;
   height: 30px;
   width: 30px;
-  border-radius: 30%;
 }
 
 /* START BOIL PAGE */
 #startBoilView{
   width: 100%;
-  height: 100%;
+  height: 700px;
   background-color: yellow;
   margin: 0;
 }
 
 #setTime{
   width: 100%;
-  height: 150px;
-  padding-top: 10%;
+  height: 180px;
   background-color: yellow;
   font-weight: bold;
+}
+
+#setTime > p{
   text-align: center;
 }
 
+#setTime > h3 {
+  text-align: center;
+}
 #eggTimer{
   width: 210px;
   height:400px;
@@ -295,40 +323,58 @@ border-bottom: 1px solid black;
   font-weight: bold;
 }
 
+#endOfPage{
+  margin-top: 172px;
+}
+
+/*style for slider */
+
+
 /*TIMER PAGE*/
 
 #countDown{
   width: 100%;
-  height: 100px;
-  padding-top: 10%;
-  background-color: white;
+  height: 180px;
+  background-color: yellow;
   font-weight: bold;
-  text-align: center;
-  border-bottom: 4px solid yellow;
+  border-bottom: 2px solid black;
 }
 
+#timer{
+  margin-left: 30px;
+  text-align: center;
+  font-size: 24px;
+  background-color: white;
+  border: 2px solid black;
+  padding: 15px;
+}
 #stopTimer{
+  margin-left: 110px;
   padding-top: 10px;
+  margin-top: 20px;
+}
+
+.timerButton{
+  height: 50px;
+  width: 150px;
+  border: none;
+  border-radius: 5%;
+  border: 2px solid black;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 #stop{
-  height: 30px;
-  width: 100px;
   background-color: red;
-  border: none;
-  border-radius: 5%;
 }
 
-#continue{
-  height: 30px;
-  width: 100px;
-  background-color: green;
-  border: none;
-  border-radius: 5%;
+#start{
+  background-color: white;
 }
 
 
 .saveEgg{
   width: 400px;
+  height: 200px;
   border:3px;
   border-radius:5px;
   padding:50px;
@@ -351,7 +397,6 @@ border-bottom: 1px solid black;
 #rating{
   background-color: yellow;
   text-align: center;
-  margin-top: 70px;
 }
  .starButton{
   background: url('images/starWhite.png');
@@ -367,6 +412,10 @@ border-bottom: 1px solid black;
   color: #FFF684;
  }
 
+.tipsQueue{
+  height: auto;
+  width: 100%;
+}
 
 
 .tips {
@@ -393,9 +442,10 @@ border-bottom: 1px solid black;
 }
 
 .tipsText{
-  width: 400px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin-left: 60px;
+  margin-right: 10px;
   margin-top: 8px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
