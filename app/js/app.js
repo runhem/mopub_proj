@@ -88,7 +88,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     $rootScope.$broadcast('userLoggedIn');
-    this.setLoggedUser()
+ //   this.setLoggedUser()
   } else {
     console.log("No user")
     $rootScope.$broadcast('userLoggedOut');
@@ -172,9 +172,12 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   }
 
   //Removes egg from database
-  this.removeEggFromDatabase = function(item){
-    console.log("i remove")
+  this.removeSavedEgg = function(item){
     this.loggedIn.child('egg').child(item).remove()
+  };
+
+  this.setNoEggs = function(){
+    this.loggedIn.child('egg').set('No eggs')
   }
 
   return this

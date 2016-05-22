@@ -16,9 +16,13 @@ eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$wi
 
     //Removes egg from database and profile
      $scope.removeEgg = function(egg){
-     	console.log(egg)
-     	eggModel.removeEggFromDatabase(egg.eggid);
-     	$scope.eggs = eggModel.fetchEggs();
-    };
-
+	   eggModel.loggedIn.child('egg').once("value", function(snapshot){
+	      if(snapshot.numChildren() == 1){
+     		eggModel.setNoEggs();
+	      }else{
+	        eggModel.removeSavedEgg(egg.eggid);
+	      }
+	    })
+	 	$scope.eggs = eggModel.fetchEggs();
+	 }
 });
