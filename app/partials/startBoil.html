@@ -1,12 +1,15 @@
 <!-- Välja mjukt till hårt. Genereras en tid. Knapp för starta timer --> 
 <!-- eyecandy! -->
+<style>
 
-
+</style>
 <div id="startBoilView" ng-init="initSlider()">
 	<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+	<a href="#/newegg" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a>
 	<div id="setTime">
-		<h2>{{softness}}</h2>
-		<p>{{eggTime/60}} min</p>
+		<p>Egg size: {{eggSize}}</p>
+		<h3>Softness: {{softness}}</h3>
+		<p>Time: {{eggTime/60}} min</p>
 	</div>
 
 
@@ -16,7 +19,7 @@
 		<svg id="eggTimer" ng-disabled="timerRunning">
 			<ellipse id="ellipseEgg" class="animateEgg"></ellipse>
 			<circle id="circleEgg" class="animateEgg"></circle>
-			<text class="animateText" x="130" y="80">START BOIL!</text>
+			<text class="animateText" x="130" y="80">TO TIMER!</text>
 		</svg>
 	</a>
 </div>

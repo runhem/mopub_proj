@@ -13,6 +13,13 @@ body{
   margin: 0;
   padding: 0;
 }
+
+/* back button */
+.backButton{
+  margin-left: 10px;
+  padding-top: 20px;
+}
+
 /*LOGIN IN PAGE */
 #startEgg{
   background-color: yellow;

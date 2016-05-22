@@ -3,7 +3,9 @@
 
 
 
-<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
+<a href="#/startBoil" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a>
+
 <div id="countDown" ng-init="startTimer()">
 	<timer id="timer" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
 	<audio id="audio1" autoplay preload loop>
