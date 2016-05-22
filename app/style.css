@@ -306,6 +306,28 @@ border-bottom: 1px solid black;
   text-align: center;
   border-bottom: 4px solid yellow;
 }
+
+
+#stopTimer{
+  padding-top: 10px;
+}
+#stop{
+  height: 30px;
+  width: 100px;
+  background-color: red;
+  border: none;
+  border-radius: 5%;
+}
+
+#continue{
+  height: 30px;
+  width: 100px;
+  background-color: green;
+  border: none;
+  border-radius: 5%;
+}
+
+
 .saveEgg{
   width: 400px;
   border:3px;
