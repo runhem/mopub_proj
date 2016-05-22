@@ -1,6 +1,7 @@
 eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$window){
 	
 	$scope.initProfile = function(){
+		console.log("I init")
 		if(eggModel.loggedIn){
 			$scope.eggs = eggModel.fetchEggs();			
 		}
@@ -8,6 +9,11 @@ eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$wi
 
 	$scope.$on('userSetLogged', function(){
 		$scope.eggs = eggModel.fetchEggs();
+	});
+
+	$scope.$on('userLoggedOut', function(){
+		$scope.egg = [];
+		$location.path('/login')
 	});
 
 	//Function that sends us to timer with the values of the egg that was clicked 

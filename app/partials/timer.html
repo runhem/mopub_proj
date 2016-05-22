@@ -16,7 +16,7 @@
 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 <div id="countDown">
-	<a href="#/startBoil" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a><br/></br>
+	<a href="" type="button" class="backButton" ng-click="goBack()"><img width="40px" height="40px" src="images/back.png"></a><br/></br>
 	<timer id="timer" autostart="false" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
 	<audio id="audio1" preload loop>
 		<source src="egg.mp3" type="audio/mp3">

@@ -1,4 +1,4 @@
-var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed','timer','ngTouch']); 
+var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed','timer']); 
 
 eggApp.config(['$routeProvider',
   function($routeProvider) { 
@@ -37,7 +37,7 @@ eggApp.config(['$routeProvider',
   }]);
 
 
-eggApp.factory('eggModel',function ($resource, $rootScope) {
+eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
 
 // Initializing firebase 
 
@@ -69,6 +69,8 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
   this.signOut = function(){
     firebase.auth().signOut().then(function() {
     console.log("Sign out successful")
+    profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
+    loggedIn = '';
     }, function(error) {
     console.log("Sign out error")
     });
@@ -95,12 +97,12 @@ eggApp.factory('eggModel',function ($resource, $rootScope) {
  //   this.setLoggedUser()
   } else {
     console.log("No user")
+    this.loggedIn
     $rootScope.$broadcast('userLoggedOut');
-    this.loggedIn 
   }
   });
 
-  var profile = {"eggSize": "small", "softness": "medium", "eggTime" : 0, "rating": 0};
+  var profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
   this.loggedIn
 
   this.returnEmail = function(){

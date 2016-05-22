@@ -6,6 +6,7 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
 
 //Handling the slider 
 	$scope.initSlider = function(){
+		if(eggModel.returnEggSize()){
 		var slider = document.getElementById('slider');
 		//setting up slider
 		noUiSlider.create(slider, {
@@ -31,29 +32,34 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
 			var boil = slider.noUiSlider.get();
 			//Checking different states of boil from slider value 'boil'
 			//and depending on state the variable 'softness' gets diffrent values
+			var softness
 			if(boil == 1){
-				var softness = 'soft';
+				softness = 'soft';
 			}
 			else if(boil == 2){
-				var softness = 'soft to medium';
+				softness = 'soft to medium';
 			}
 			else if(boil == 3){
-				var softness = 'medium';
+				softness = 'medium';
 			}
 			else if(boil == 4){
-				var softness = 'medium to hard';
+				softness = 'medium to hard';
 			}
 			else if(boil == 5){
-				var softness = 'hard';
+				softness = 'hard';
 			}
 			else if(boil == 6){
-				var softness = 'too hard';
+				softness = 'too hard';
 			}
 			//Adds eggSoftness to profile
 			eggModel.addSoftnessToProfile(softness);
 			//Calls function $scope.getEggTime to get new time depending on new softness
 			$scope.getEggTime(softness);
 		});
+	}
+	else{
+		$location.path('/newegg')	
+	}
 	};
 
 // fetches the time to boil for the chosen softness called 'softness'
@@ -81,6 +87,10 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
         	});
       	}); 
     };
+
+	$scope.goBack = function(){
+		history.back()
+	};
 
     $scope.goToTimer = function(){
 		$location.path("/timer");

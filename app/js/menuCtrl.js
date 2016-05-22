@@ -1,4 +1,4 @@
-eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
+eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
 
   //Default variables
 	$scope.userName = "";
@@ -8,12 +8,17 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
 
   //Init for the menu, sets up username and photo in menu
   $scope.initMenu = function(){
-  	if(eggModel.loggedIn){
+  	if(eggModel.returnUser()){
   		$scope.userName = eggModel.returnName();	
       $scope.userPhoto = eggModel.returnPhoto();	
-  	}
+  	}else{
+    $timeout(function() {
+        $location.path = ('/login')
+        $scope.$apply();
+    }, 1000);
+    }
 
-    $scope.setHeader();
+    setHeader();
   };
 
   //If user is logged in the photo and username are always to be displayed in menu
@@ -33,7 +38,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
 
   //Closes the menu of path changes
   $scope.$on('$routeChangeStart', function() { 
-    $scope.setHeader()   
+    setHeader()   
     if(slideout.isOpen()){
       slideout.close();
      }; 
@@ -52,7 +57,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope){
     $scope.userPhoto = "images/profile.png";
   });
 
-  $scope.setHeader = function(){
+  var setHeader = function(){
     if($location.path() == "/timer"){
       $scope.header = "Timer";
       }

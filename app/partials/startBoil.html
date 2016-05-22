@@ -13,11 +13,11 @@
 }
 </style>
 
-<div id="startBoilView" ng-init="initSlider()">
+<div id="startBoilView">
 	<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
-	
-	<div id="setTime">
-		<a href="#/newegg" type="button" class="backButton"><img width="40px" height="40px" src="images/back.png"></a>
+
+	<div id="setTime" ng-init="initSlider()">
+		<a href="" type="button" class="backButton" ng-click="goBack()"><img width="40px" height="40px" src="images/back.png"></a>
 		<p>Egg size: {{eggSize}}</p>
 		<h3>Softness: {{softness}}</h3>
 		<p>Time: {{eggTime/60}} min</p>

@@ -95,9 +95,6 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
     	$scope.t1.paused(true)
     	$scope.music.pause();
     }
-
-
-
   }
 
 	// $scope.$on('timer-stopped', function (event, data){
@@ -138,6 +135,10 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 		eggModel.loggedIn.child('egg').push({'size': eggSize, 'boil':boil, 'rating': rating, 'date':date});
 		$location.path("/profile");
 
+	};
+
+	$scope.goBack = function(){
+		history.back()
 	};
 
 
