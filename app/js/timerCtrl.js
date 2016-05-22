@@ -6,6 +6,11 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	$scope.animate = false;
 	$scope.eggTime = eggModel.returnEggTime();
 
+	$scope.stopTimer = function(){
+		$scope.timmerRunning = false;
+		$scope.animate = false;
+		document.getElementById('audio1').pause();
+	}
 	//Timer function
 	$scope.startTimer = function (){
 	    $scope.$broadcast('timer-start');
@@ -16,9 +21,8 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
    //       TweenMax.to('.animateEgg',2,{y:"+=400px"});
 		 // TweenMax.to('.animateText',0.01,{'opacity':'0'});
 		
-		// var music = document.getElementById('audio1');
-		// music.play();
-		// music.loop = true;
+		var music = document.getElementById('audio1');
+		music.play();
 
 		var t1 = new TimelineMax();
 

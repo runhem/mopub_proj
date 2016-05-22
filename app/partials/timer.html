@@ -1,6 +1,26 @@
 <!-- Välja mjukt till hårt. Genereras en tid. Knapp för starta timer --> 
 <!-- eyecandy! -->
+<style>
 
+#stopTimer{
+	padding-top: 10px;
+}
+#stop{
+	height: 30px;
+	width: 100px;
+	background-color: red;
+	border: none;
+	border-radius: 5%;
+}
+
+#continue{
+	height: 30px;
+	width: 100px;
+	background-color: green;
+	border: none;
+	border-radius: 5%;
+}
+</style>
 
 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
@@ -8,11 +28,14 @@
 
 <div id="countDown" ng-init="startTimer()">
 	<timer id="timer" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
-	<audio id="audio1" autoplay preload loop>
+	<audio id="audio1" preload loop>
 		<source src="egg.mp3" type="audio/mp3">
 	</audio>
+	<div id="stopTimer">
+	<button id="stop" ng-show="animate" ng-click="stopTimer()">STOP</button>
+	<button id="continue" ng-hide="animate" ng-click="startTimer()">CONTINUE</button>
 </div>
-
+</div>
 
 <div ng-show="wannaSave" class="saveEgg">
 	<p>How was your egg?</p>
