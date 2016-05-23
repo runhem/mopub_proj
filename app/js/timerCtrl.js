@@ -5,8 +5,33 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
 	$scope.animate = false;
-	$scope.eggTime = eggModel.returnEggTime();
+	
 	$scope.t1 = new TimelineMax();
+
+	var getEggTime = function(softness, size){
+      	var allSoftness = eggModel.allEggs.child(size)
+      	allSoftness.once("value", function(snapshot){
+        	snapshot.forEach(function(childSnapshot) {
+          		if(childSnapshot.key == softness){
+          		//Adds the time to profile for the current egg
+            	eggModel.addTimeToProfile(childSnapshot.val());
+
+	            //Fetches variables $scope.eggTime and $scope.softness so they can update dynamically
+	            //when using slider
+	            
+	            $scope.eggTime = eggModel.returnEggTime();
+	            $scope.$apply()
+	            return $scope.eggTime; 
+	          	}else{
+	          	}
+        	});
+      	}); 
+    };
+	$scope.softness = eggModel.returnSoftness();
+	$scope.eggSize = eggModel.returnEggSize();
+	$scope.eggTime = getEggTime($scope.softness, $scope.eggSize);
+
+	
 
 	// $scope.stopTimer = function(){
 	// 	$scope.timerRunning = false;
@@ -88,7 +113,7 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 		var currentDate = new Date()
 		var day = currentDate.getDate()
-		var month = currentDate.getMonth()
+		var month = currentDate.getMonth()+1
 		var year = currentDate.getFullYear()
 		var date = day + "/" + month + "/" + year
 

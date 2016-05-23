@@ -5,9 +5,9 @@
 			<img id="profilePic" src='{{userPhoto}}' width="60px" height="60px"/>
 			<h1 style="text-align:center;">{{userName}}</h1>
 		</div>
-		<a href="#/newegg" ng-class="{'activeMenu':path == '/newegg'}"><h2>New egg</h2></a>
-      	<a href="#/profile" ng-class="{'activeMenu':path == '/profile'}"><h2>My eggs</h2></a>
-      	<a href="#/videos" ng-class="{'activeMenu':path == '/videos'}"><h2>Egg videos</h2></a>
+		<a href="#/newegg" ng-class="{'activeMenu':path == '/newegg'}" ng-click="closeMenu('newegg')"><h2>New egg</h2></a>
+      	<a href="#/profile" ng-class="{'activeMenu':path == '/profile'}" ng-click="closeMenu('profile')"><h2>My eggs</h2></a>
+      	<a href="#/videos" ng-class="{'activeMenu':path == '/videos'}" ng-click="closeMenu('videos')"><h2>Egg videos</h2></a>
       	<a href="" ng-click="signOut()"><h2>Sign Out</h2></a>
 	</nav>
 
@@ -24,7 +24,7 @@
 			</header>
 	</main>
 </div>
-<div id="opacityContent"></div>
+<div id="opacityContent" ng-click="closeMenu()"></div>
 <script>
 
 //Försöka flytta till en controller sen
@@ -45,7 +45,19 @@
 	else{
 	angular.element('#opacityContent').css('display', 'none');
 	}
-
-
 	});
+
+	document.querySelector('#opacityContent').addEventListener('click', function() {
+	slideout.toggle();
+	if(slideout.isOpen()){
+	angular.element('#opacityContent').css('display', 'block');
+	}
+	else{
+	angular.element('#opacityContent').css('display', 'none');
+	}
+})
+
+
+
+
 </script>

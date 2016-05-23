@@ -75,5 +75,22 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
       }
   };
 
+  $scope.closeMenu = function(link){
+    if(link == "newegg"){
+      $location.path('/newegg');  
+      }
+    else if(link == "profile"){
+      $location.path('/profile');  
+      }
+    else if(link == "videos"){
+      $location.path('/videos');  
+      }
+
+      if(slideout.isOpen()){
+      slideout.close();
+     };   
+
+  }
+
 });
 

@@ -1,4 +1,4 @@
-var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'youtube-embed','timer']); 
+var eggApp = angular.module('egg',['ngRoute', 'ngResource', 'ngTouch', 'youtube-embed','timer']); 
 
 eggApp.config(['$routeProvider',
   function($routeProvider) { 
@@ -154,6 +154,8 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
   //Adds cooking-Time to Profile 
   this.addTimeToProfile = function(time){
     profile.eggTime = time;
+    $rootScope.$broadcast('newTime');
+
   }
 
   //Adds the current Rating to profile

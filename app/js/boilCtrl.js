@@ -96,5 +96,8 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
 		$location.path("/timer");
 	}
 
+
+	
+
 });
 
