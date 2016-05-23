@@ -190,6 +190,10 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
     this.loggedIn.child('egg').set('No eggs')
   }
 
+
+  this.clearProfile = function(){
+  profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
+  }
   return this
 
 });

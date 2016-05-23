@@ -45,8 +45,8 @@ padding-top: 10px;
 height: 80px;
 width: 100%;
 background-color: white;
-border-bottom: 2px solid black;
-}
+/*border-bottom: 2px solid black;
+*/}
 #menu > a{
   color: black;
 }
@@ -65,11 +65,9 @@ border-bottom: 2px solid black;
 #opacityContent{  
   height: 600px;
   width: 400px;
-  background-color:transparent;
+  background-color:yellow;
   display: none;
-  -moz-opacity: 0.7;
-  opacity:.70;
-  filter: alpha(opacity=70);
+
 }
 
 /*Slide out part */
@@ -113,13 +111,13 @@ border-bottom: 2px solid black;
 }
 #menu{
   background-color: white;
-  border-right: 1px solid black;
-  z-index: 1;
+/*  border-right: 1px solid black;
+*/  z-index: 1;
 }
 #menu > h2{
   background-color: white;
-  border: 1px solid #f2f2f2;
-  margin: 0px;
+/*  border: 1px solid #f2f2f2;
+*/  margin: 0px;
   height: 50px;
   padding-top: 10px;
   padding-left: 15px;
@@ -162,8 +160,9 @@ border-bottom: 2px solid black;
 /* Categories */
 .categoryButton{
 	background-color: white;
-	border: 2px solid black;
-	height: 40px;
+  border: none;
+/*	border: 2px solid black;
+*/	height: 40px;
 	width: auto;
 	font-size: 16px;
   margin-top: 0px;
@@ -190,8 +189,9 @@ border-bottom: 2px solid black;
 }
 
 .selectButton{
-  border: 2px solid black;
-  background-color: white;
+/*  border: 2px solid black;
+*/  background-color: white;
+border: none;
   height: 65px;
   width: 214px;
   font-size: 36px;
@@ -218,8 +218,8 @@ border-bottom: 2px solid black;
 #profile > p{
   padding-top: 20px;
   height: 60px;
-  border-bottom: 2px solid black;
-  font-size: 16px;
+/*  border-bottom: 2px solid black;
+*/  font-size: 16px;
   background-color: white;
 }
 .eggsContainer{
@@ -231,14 +231,15 @@ border-bottom: 2px solid black;
 .eggRow{
   margin-bottom:5px;
   padding:0px;
-  border-bottom: 2px solid black;
-  margin: 10px;
+  border-bottom: 4px solid white;
+/*  border-bottom: 2px solid black;
+*/  margin: 10px;
 }
 
 .profileEgg{
   border-radius: 50%;
-  border: 1px solid black;
-  height: 50px;
+/*  border: 1px solid black;
+*/  height: 50px;
   width: 35px;
   background-color: white;
   margin-top: 10px;
@@ -266,8 +267,9 @@ border-bottom: 2px solid black;
 
 .remove{
   background-color: white;
-  border: 1px solid black;
-  margin-top: 20px;
+  border: none;
+/*  border: 1px solid black;
+*/  margin-top: 20px;
   height: 30px;
   width: 30px;
 }
@@ -339,16 +341,16 @@ border-bottom: 2px solid black;
   height: 180px;
   background-color: yellow;
   font-weight: bold;
-  border-bottom: 2px solid black;
-}
+/*  border-bottom: 2px solid black;
+*/}
 
 #timer{
   margin-left: 30px;
   text-align: center;
   font-size: 24px;
   background-color: white;
-  border: 2px solid black;
-  padding: 15px;
+/*  border: 2px solid black;
+*/  padding: 15px;
 }
 #stopTimer{
   margin-left: 110px;
@@ -361,8 +363,8 @@ border-bottom: 2px solid black;
   width: 150px;
   border: none;
   border-radius: 5%;
-  border: 2px solid black;
-  font-size: 20px;
+/*  border: 2px solid black;
+*/  font-size: 20px;
   margin-bottom: 20px;
   background-color: white;
 }
@@ -389,8 +391,9 @@ border-bottom: 2px solid black;
 .saveButtons{
   height: 30px;
   width: 100px;
-  border: 1px solid black;
-  background-color: white;
+  border: none;
+/*  border: 1px solid black;
+*/  background-color: white;
 }
 
 .saveButtons:hover{
@@ -428,16 +431,16 @@ border-bottom: 2px solid black;
     margin-left: 50px;
     margin-top: 0px;
     background-color: yellow;
-    border: 2px solid yellow;
-    border-radius: 5px;
+/*    border: 2px solid yellow;
+*/    border-radius: 5px;
 }
 
 .circle{
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  border: 2px solid rgb(255, 255, 153);
-  background-color:rgb(255, 255, 153); 
+/*  border: 2px solid rgb(255, 255, 153);
+*/  background-color:rgb(255, 255, 153); 
   margin-left: 32px;
   margin-top:-10px;
   margin-bottom: 0px; 

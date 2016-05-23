@@ -111,11 +111,12 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 	}
 
 	//Function that is called when don't save egg is chosen.
-	//Should clear the egg-profile and the redirect to 'my eggs'(?) or 'new egg'(?)
+	//Clears the egg-profile and the redirect to 'new egg' page
 	$scope.dontSave = function(){
-		console.log("Don't save egg!")
-		//Should clear profile
+		eggModel.clearProfile();
+		$location.path("/newegg");
 	}
+	
 //Saves the egg after cooking
 	$scope.saveEgg = function(rating){
 		console.log(rating)
