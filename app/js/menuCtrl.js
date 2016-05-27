@@ -11,12 +11,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
   	if(eggModel.returnUser()){
   		$scope.userName = eggModel.returnName();	
       $scope.userPhoto = eggModel.returnPhoto();	
-  	}else{
-    $timeout(function() {
-        $location.path = ('/login')
-        $scope.$apply();
-    }, 1000);
-    }
+  	}
     setHeader();
   };
 

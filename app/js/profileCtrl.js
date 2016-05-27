@@ -1,11 +1,17 @@
 eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$window){
-	
+
+	$scope.haveEggs = false;
+
 	//Checks so that the users is logged in and if so eggs are fetched
 	$scope.initProfile = function(){
 		if(eggModel.loggedIn){
-			$scope.eggs = eggModel.fetchEggs();			
+			$scope.eggs = eggModel.fetchEggs();	
+			$scope.haveEggs = true;		
+		}else{
+		// Making sure user is logged in, otherwise redirect to login
+		window.location.href = 'http://xml.csc.kth.se/~friekl/mopub_proj/app/index.html';
 		}
-	};
+	}
 
 	$scope.$on('userSetLogged', function(){
 		$scope.eggs = eggModel.fetchEggs();
@@ -35,5 +41,7 @@ eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$wi
 	    })
 	 	$scope.eggs = eggModel.fetchEggs();
 	 }
+
+	 console.log($scope.eggs)
 
 });

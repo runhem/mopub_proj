@@ -17,6 +17,13 @@ $scope.displayVideos = [];
 
     }
 
+// Making sure user is logged in, otherwise redirect to login
+$scope.checkLoggedIn = function(){
+    if(eggModel.loggedIn){
+    }else{
+    window.location.href = 'http://xml.csc.kth.se/~friekl/mopub_proj/app/index.html';
+    }
+};
 
 
 

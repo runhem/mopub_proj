@@ -1,6 +1,6 @@
 <!-- Visa videos på kategori, ratea videos -->
   <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
-<div class="videos">
+<div class="videos" ng-init="checkLoggedIn()">
 	<div id="chooseCategory" ng-init="checkMenu()">
 		<h4>Choose category:</h4>
 		<div class = "categories">

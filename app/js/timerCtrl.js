@@ -8,6 +8,7 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 	//Gets the eggtime 
 	var getEggTime = function(softness, size){
+		checkLoggedIn()
       	var allSoftness = eggModel.allEggs.child(size)
       	allSoftness.once("value", function(snapshot){
         	snapshot.forEach(function(childSnapshot) {
@@ -25,6 +26,14 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
         	});
       	}); 
     };
+
+	// Making sure user is logged in, otherwise redirect to login
+	var checkLoggedIn = function(){
+		if(eggModel.loggedIn){
+		}else{
+		window.location.href = 'http://xml.csc.kth.se/~friekl/mopub_proj/app/index.html';
+		}
+	};
 
     //Fetches softness and eggsize from the profile in the model
 	$scope.softness = eggModel.returnSoftness();
@@ -107,7 +116,6 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 		eggModel.loggedIn.child('egg').push({'size': eggSize, 'boil':boil, 'rating': rating, 'date':date});
 		$location.path("/profile");
-
 	};
 
 	//Redirects the user back to previous page

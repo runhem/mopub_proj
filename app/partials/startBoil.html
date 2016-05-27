@@ -2,7 +2,7 @@
 <!-- Includes menu -->
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 <!-- Set up for softness and time -->
-<div id="startBoilView">
+<div id="startBoilView" ng-init="checkLoggedIn()">
 	<div id="setTime" ng-init="initSlider()">
 		<a href="" type="button" class="backButton" ng-click="goBack()"><img width="40px" height="40px" src="images/back.png"></a>
 		<p>Egg size: {{eggSize}}</p>

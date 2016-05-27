@@ -2,7 +2,7 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
 
-<div id="newEggView" style="padding-top:20px; background-color:yellow;">
+<div id="newEggView" ng-init="checkLoggedIn()" style="padding-top:20px; background-color:yellow;">
   <!-- Carousel -->
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->

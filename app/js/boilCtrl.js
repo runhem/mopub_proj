@@ -3,6 +3,13 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
 // Getting egg-size selected by user
 $scope.eggSize = eggModel.returnEggSize();
 
+// Making sure user is logged in, otherwise redirect to login
+$scope.checkLoggedIn = function(){
+	if(eggModel.loggedIn){
+	}else{
+	window.location.href = 'http://xml.csc.kth.se/~friekl/mopub_proj/app/index.html';
+	}
+};
 
 //Handling the slider 
 	$scope.initSlider = function(){
