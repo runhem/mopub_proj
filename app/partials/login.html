@@ -3,7 +3,8 @@
 <div id="appName">
 	<h1>Shake that egg!</h1>
 	<div id="startEgg" ng-click="signIn()">
-		Sign in
+		<div ng-hide="loading"> Sign in </div>
+		<div ng-show="loading"> Loading </div>
     </div>
 <div>
 

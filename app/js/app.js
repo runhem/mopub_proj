@@ -61,7 +61,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
   var auth = firebase.auth();
   var provider = new firebase.auth.GoogleAuthProvider();
   var profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
-  this.loggedIn //<----VAD GÖR DENNA??
+  this.loggedIn 
 
   // Signs in
   this.signIn = function(){ 
@@ -100,12 +100,11 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
     if (user) {
       console.log("user")
       $rootScope.$broadcast('userLoggedIn');
-   //   this.setLoggedUser() <----HA KVAR????? 
     } 
     else {
       console.log("No user")
-      this.loggedIn
       $rootScope.$broadcast('userLoggedOut');
+      this.loggedIn
     }
   });
 
@@ -193,7 +192,7 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
     this.loggedIn.child('egg').child(item).remove()
   };
 
-  //Sets eggs to "No eggs" for logged in user <--- NÄR ANVÄNDER VI DENNA??? 
+  //Sets eggs to "No eggs" for logged in user, making sure the entry in the database isn't deleted but just empty
   this.setNoEggs = function(){
     this.loggedIn.child('egg').set('No eggs')
   }

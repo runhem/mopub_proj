@@ -2,9 +2,12 @@
 <!-- Includes menu -->
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
+<div class="container">
 <!-- Profile -->
 <div id="profileView" ng-init="initProfile()">
-	<div id="profile">
+	<div ng-hide="eggs.length" style="text-align:center;"><h3>You have no saved eggs</h3></div>
+
+	<div ng-show="eggs.length" id="profile">
 		<p>Choose one of your favorite eggs to cook again!</p>
 	</div>
 	<div class="col-xs-12 eggsContainer">
@@ -48,7 +51,7 @@
 	</div>
 </div>
 
-
+</div>
 
 
 
