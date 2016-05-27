@@ -1,0 +1,54 @@
+<!-- Mina gamla ägg -->
+<!-- Val av gammalt ägg leder till timer --> 
+
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+
+<div id="profileView" ng-init="initProfile()">
+	<div id="profile">
+		<p>Choose one of your favorite eggs to cook again!</p>
+	</div>
+	<div class="col-xs-12 eggsContainer">
+		<div class="row eggRow" ng-repeat="egg in eggs">
+			<div class="col-xs-2 eggPic">
+				<div class="profileEgg"></div>
+			</div>
+			<div class="col-xs-8 eggInfo" ng-click="boilAgain(egg.size, egg.boil)">
+				<div class="col-xs-12">
+					<p class="p-custom">{{egg.size}} egg with {{egg.boil}} boil</p>
+				</div>
+				<div class="col-xs-12">
+		<!-- KANSKE EN FOR RATING IN EGG PÅ NÅGOT SÄTT?-->
+					<div class="col-xs-1 stari" ng-show="1 <= egg.rating">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari" ng-show="2 <= egg.rating">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari" ng-show="3 <= egg.rating">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari" ng-show="4 <= egg.rating">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>
+					<div class="col-xs-1 stari" ng-show="5 <= egg.rating">
+						<img src="images/starWhite.png" width="10px" height="10px">
+					</div>			
+			<!-- LÄGGA DATUM I DATABASEN FÖR SPARAT EGG VORE JU NICE -->
+					<div class="col-xs-6">
+						<p class="p-smaller-custom">{{egg.date}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2">
+				<button type="button" class="remove" ng-click="removeEgg(egg)">X</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+

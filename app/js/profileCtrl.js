@@ -1,7 +1,7 @@
 eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$window){
 	
+	//Checks so that the users is logged in and if so eggs are fetched
 	$scope.initProfile = function(){
-		console.log("I init")
 		if(eggModel.loggedIn){
 			$scope.eggs = eggModel.fetchEggs();			
 		}
@@ -11,23 +11,18 @@ eggApp.controller('profileCtrl', function($scope,$timeout,$location,eggModel,$wi
 		$scope.eggs = eggModel.fetchEggs();
 	});
 
+	//If user is logged out no eggs are to be shown
 	$scope.$on('userLoggedOut', function(){
 		$scope.egg = [];
 		$location.path('/login')
 	});
 
-	//Function that sends us to timer with the values of the egg that was clicked 
-	//The timer then starts for that egg 
-	//>>>>>>OBS! PGA denna funktion kanske inte timer ska starta automatiskt utan med en "start-knapp"
+	//Function that updates current information about chose egg and them switches to timer-page
 	$scope.boilAgain = function(size, boil){
-	 	//updates current information about the chosen egg
 		eggModel.addSizeToProfile(size);
 		eggModel.addSoftnessToProfile(boil);
-		//Switching to the timer view
 		$location.path('/timer');
     };
-
-   
 
     //Removes egg from database and profile
      $scope.removeEgg = function(egg){

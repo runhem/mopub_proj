@@ -60,16 +60,19 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
 // Firebase authorisation through google login
   var auth = firebase.auth();
   var provider = new firebase.auth.GoogleAuthProvider();
+  var profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
+  this.loggedIn //<----VAD GÖR DENNA??
 
+  // Signs in
   this.signIn = function(){ 
     auth.signInWithRedirect(provider)
     provider.addScope('profile');
   };
 
+  //Signs out
   this.signOut = function(){
     firebase.auth().signOut().then(function() {
     console.log("Sign out successful")
-    profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
     loggedIn = '';
     }, function(error) {
     console.log("Sign out error")
@@ -82,46 +85,50 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
     $rootScope.$broadcast('userSetLogged')
   };
 
+  //Sets current User and returns true if successful
   this.returnUser = function(){
     if(firebase.auth().currentUser){
       return true
-    }else{
+    }
+    else{
       return false
     }
   };
 
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    console.log("user")
-    $rootScope.$broadcast('userLoggedIn');
- //   this.setLoggedUser()
-  } else {
-    console.log("No user")
-    this.loggedIn
-    $rootScope.$broadcast('userLoggedOut');
-  }
+  //Checks if user is logged in
+  firebase.auth().onAuthStateChanged(function(user){
+    if (user) {
+      console.log("user")
+      $rootScope.$broadcast('userLoggedIn');
+   //   this.setLoggedUser() <----HA KVAR????? 
+    } 
+    else {
+      console.log("No user")
+      this.loggedIn
+      $rootScope.$broadcast('userLoggedOut');
+    }
   });
 
-  var profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
-  this.loggedIn
-
+  //Returns users email
   this.returnEmail = function(){
       console.log(firebase.auth().currentUser.email);
       return firebase.auth().currentUser.email;
   };
 
+  //Returns users name
   this.returnName = function(){
       return firebase.auth().currentUser.displayName;
   };
 
+  //Returns users photo
   this.returnPhoto = function(){
     return firebase.auth().currentUser.photoURL; 
   };
 
+  //Returns unders uid
   this.returnUid = function(){
     return firebase.auth().currentUser.uid;
   };
-
 
   //Fetches all eggs from database and stores it in eggs-array
   this.fetchEggs = function(){
@@ -138,8 +145,6 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
     })
   return eggs
   }
-
-//Josmol har lagt till 
 
   //Adds the current Boil-softness to profile
   this.addSoftnessToProfile = function(softness){
@@ -188,16 +193,19 @@ eggApp.factory('eggModel',function ($resource, $rootScope, $location) {
     this.loggedIn.child('egg').child(item).remove()
   };
 
+  //Sets eggs to "No eggs" for logged in user <--- NÄR ANVÄNDER VI DENNA??? 
   this.setNoEggs = function(){
     this.loggedIn.child('egg').set('No eggs')
   }
 
 
+  //Clears profile 
   this.clearProfile = function(){
   profile = {"eggSize": null, "softness": null, "eggTime" : null, "rating": null};
   }
-  return this
 
+
+  return this
 });
 
 

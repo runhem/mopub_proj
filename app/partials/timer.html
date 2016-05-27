@@ -1,10 +1,8 @@
-<!-- Välja mjukt till hårt. Genereras en tid. Knapp för starta timer --> 
-<!-- eyecandy! -->
-<style>
 
-</style>
-
+<!-- includes menu --> 
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
+
+<!-- Timer -->
 <div id="countDown">
 	<a href="" type="button" class="backButton" ng-click="goBack()"><img width="40px" height="40px" src="images/back.png"></a><br/></br>
 	<timer  ng-show="timerRunning" id="timer" autostart="false" countdown="eggTime" interval="1000">{{mminutes}} minute{{minutesS}} : {{sseconds}} second{{secondsS}}</timer>
@@ -12,12 +10,11 @@
 		<source src="egg.mp3" type="audio/mp3">
 	</audio>
 	<div id="stopTimer">
-		<button class="timerButton" ng-click="startTimer()" ng-hide="timerRunning"> Start</button>
+		<button class="timerButton" ng-click="startTimer()" ng-hide="timerRunning">Start</button>
 	</div>
 </div>
 
-
-
+<!-- Save options -->
 <div ng-show="wannaSave" class="saveEgg">
 	<div id="saveOptions" ng-show="chooseSave">
 		<p>Your egg is finished!</p>
@@ -34,6 +31,7 @@
 	</div>
 </div>
 
+<!-- Tips -->
 <div class="tipsQueue" ng-show="animate">
 	<div class="tips" id="t1"></div>
 	<div class="circle" id="c1">

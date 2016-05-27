@@ -17,7 +17,6 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
         $scope.$apply();
     }, 1000);
     }
-
     setHeader();
   };
 
@@ -47,6 +46,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
     //Function for signing out
   $scope.signOut = function(){
 		eggModel.signOut();
+    eggModel.clearProfile();
   };
 
     //Redirects to login-page if user is logged out
@@ -57,6 +57,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
     $scope.userPhoto = "images/profile.png";
   });
 
+  //Sets the right name for the header depending on path
   var setHeader = function(){
     if($location.path() == "/timer"){
       $scope.header = "Timer";
@@ -75,6 +76,7 @@ eggApp.controller('menuCtrl', function(eggModel, $location, $scope, $timeout){
       }
   };
 
+  //Closes menu if open and redirects to the right path on click on link
   $scope.closeMenu = function(link){
     if(link == "newegg"){
       $location.path('/newegg');  

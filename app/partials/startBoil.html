@@ -1,3 +1,25 @@
+
+<!-- Includes menu -->
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
+<!-- Set up for softness and time -->
+<div id="startBoilView">
+	<div id="setTime" ng-init="initSlider()">
+		<a href="" type="button" class="backButton" ng-click="goBack()"><img width="40px" height="40px" src="images/back.png"></a>
+		<p>Egg size: {{eggSize}}</p>
+		<h3>Softness: {{softness}}</h3>
+		<p>Time: {{eggTime/60}} min</p>
+	</div>
+	<!-- Slider -->
+	<div id="slider"></div>
+	<!-- Select button -->
+	<div id="endOfPage">
+		<div class="selectSection">
+  			<button class="selectButton" type="button" ng-click="goToTimer()">SELECT</button>
+		</div>
+	</div>
+</div>
+
+<!-- Style for slider -->
 <style>
 .noUi-target{
 }
@@ -10,37 +32,5 @@
 	background-color: white;
 }
 </style>
-
-<div id="startBoilView">
-	<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
-
-	<div id="setTime" ng-init="initSlider()">
-		<a href="" type="button" class="backButton" ng-click="goBack()"><img width="40px" height="40px" src="images/back.png"></a>
-		<p>Egg size: {{eggSize}}</p>
-		<h3>Softness: {{softness}}</h3>
-		<p>Time: {{eggTime/60}} min</p>
-	</div>
-
-
-	<div id="slider"></div>
-
-	<div id="endOfPage">
-		<div class="selectSection">
-  			<button class="selectButton" type="button" ng-click="goToTimer()">SELECT</button>
-		</div>
-	</div>
-
-	<!-- TOG BORT DETTA SÅ LÄNGE OM VI VILL HA LIKA DAN KNAPP PÅ BÅDA SIDOR -->
-	<!-- <a href="#/timer"> -->
-		<!-- <svg id="eggTimer" ng-disabled="timerRunning">
-			<ellipse id="ellipseEgg" class="animateEgg"></ellipse>
-			<circle id="circleEgg" class="animateEgg"></circle>
-			<text class="animateText" x="130" y="80">TO TIMER!</text>
-		</svg> -->
-	<!-- </a> -->
-</div>
-
-
-
 
 

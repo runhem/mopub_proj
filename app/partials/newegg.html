@@ -1,43 +1,50 @@
-<!-- Välj eggstorlek -->
-
+<!-- Includes menu -->
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include> 
 
-<div style="padding-top:20px; background-color:yellow;">
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+
+<div id="newEggView" style="padding-top:20px; background-color:yellow;">
+  <!-- Carousel -->
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
 
-  <div class="carousel-inner" role="listbox">
-    <div class="item active" id="small">
-      <div class="egg" id="smallEgg">Small</div>
+    <!-- Content of the carousel -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" id="small">
+        <div class="egg" id="smallEgg">Small</div>
+      </div>
+      <div class="item" id="medium">
+        <div class="egg" id="mediumEgg">Medium</div>
+      </div>
+      <div class="item" id="large">
+        <div class="egg" id="largeEgg">Large</div>
+      </div>
     </div>
-    <div class="item" id="medium">
-      <div class="egg" id="mediumEgg">Medium</div>
-    </div>
-    <div class="item" id="large">
-      <div class="egg" id="largeEgg">Large</div>
-    </div>
-  </div>
+
   <!-- Controls -->
-  <span class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </span>
-  <span class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </span>
-</div>
-<div class="selectSection">
-  <button class="selectButton" type="button" ng-click="selectSize()">SELECT</button>
-</div>
-</div>
+    <span class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </span>
+    <span class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </span>
+  </div> <!-- Carousel closed -->
+
+  <!-- Select button -->
+  <div class="selectSection">
+    <button class="selectButton" type="button" ng-click="selectSize()">SELECT</button>
+  </div>
+
+</div> <!-- newEggView closed -->
 
 
+
+<!-- The style had to be stored here for the carousel get all styling to follow -->
 <style>
-
 #carousel-example-generic{
   background-color: yellow;
 }
@@ -83,19 +90,19 @@
 #largeEgg{
     height: 315px;
     width: 225px;
-    margin-left: 75px;
+    margin-left: 55px;
     padding-top: 130px;
 }
 #mediumEgg{
   height: 295px;
   width: 205px;
-  margin-left: 85px;
+  margin-left: 65px;
   padding-top: 120px;
 }
 #smallEgg{
   height: 275px;
   width: 185px;
-  margin-left: 95px;
+  margin-left: 75px;
   padding-top: 110px;
 }
 

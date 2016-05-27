@@ -1,13 +1,12 @@
 eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$window){
 
-
 	//Variables
 	$scope.timerRunning = false;
 	$scope.wannaSave = false;
-	$scope.animate = false;
-	
+	$scope.animate = false;	
 	$scope.t1 = new TimelineMax();
 
+	//Gets the eggtime 
 	var getEggTime = function(softness, size){
       	var allSoftness = eggModel.allEggs.child(size)
       	allSoftness.once("value", function(snapshot){
@@ -18,7 +17,6 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 	            //Fetches variables $scope.eggTime and $scope.softness so they can update dynamically
 	            //when using slider
-	            
 	            $scope.eggTime = eggModel.returnEggTime();
 	            $scope.$apply()
 	            return $scope.eggTime; 
@@ -27,35 +25,29 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
         	});
       	}); 
     };
+
+    //Fetches softness and eggsize from the profile in the model
 	$scope.softness = eggModel.returnSoftness();
 	$scope.eggSize = eggModel.returnEggSize();
+
+	//Calls the function getEggTime with the softness and egSize just fetched 
 	$scope.eggTime = getEggTime($scope.softness, $scope.eggSize);
 
-	
-
-	// $scope.stopTimer = function(){
-	// 	$scope.timerRunning = false;
-
-	// 	console.log("stop",$scope.timerRunning )
-	// 	$scope.animate = false;
-	// 	document.getElementById('audio1').pause();
-	// }
-	
-	//Timer function
+	//Timer function. Starts timer and animations
 	$scope.startTimer = function (){
+		//Listens to when timer is started
 	    $scope.$broadcast('timer-start');
 
+	    //Variables for timerRunning and animate, 
+	    //used for displaying the right content at the right time
         $scope.timerRunning = true;
         $scope.animate = true;
-         
-         //Detta används ej om vi kör på att byta sida för timer
-   //       TweenMax.to('.animateEgg',2,{y:"+=400px"});
-		 // TweenMax.to('.animateText',0.01,{'opacity':'0'});
-		
+    
+    	//Fetching music element and plays it
 		$scope.music = document.getElementById('audio1');
 		$scope.music.play();
 
-		 //>>>>> Eventuellt ha i databas??? 
+		//List with egg-tips 
 		var tipsList = ["Tip #1: Put your egg in a sock and spin it before boiling and you will have a scramled egg!",
 		 				"Tip #2: Be gentle with your eggs. They break very easy!",
 		 				"Tip #3: Try putting an egg on your next hamburger! Yummie!",
@@ -71,19 +63,14 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 		 	$scope.t1.to("#text"+i,0.001,{text:{value:tipsList[i-1], delimiter:" "},ease:Linear.easeNone});
 		 }
     };
-	$scope.stopTimer = function (){
-		$scope.$broadcast('timer-stop');
-		$scope.timerRunning = false;
-		};
 
-
+    //When timer stops music is paused, and wannaSave is set to true which displays the saving options
 	$scope.$on('timer-stopped', function (event, data){
 		console.log("inne i timer stopped")
 		$scope.wannaSave = true;
 		$scope.music.pause();
 		$scope.$apply();
 		
-		TweenLite.to('#finishText', 0.001, {text:{value:"YOUR EGG IS DONE!", delimiter:" "}, ease:Linear.easeNone});
 		TweenMax.to('#audio1', 2, {'volume':0}, "-=1");
 		TweenMax.to('.tipsQueue',1,{opacity:0});
 		TweenMax.to('#countDown',1,{opacity:0});
@@ -92,6 +79,7 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 	//Variable used to display saving buttons when set to true
 	$scope.chooseSave = true;
+
 	//Sets variables needed for displaying rating
 	$scope.showRating = function(){
 		$scope.rating = true;
@@ -122,6 +110,7 @@ eggApp.controller('timerCtrl', function($scope,$timeout,$location,eggModel,$wind
 
 	};
 
+	//Redirects the user back to previous page
 	$scope.goBack = function(){
 		history.back()
 	};

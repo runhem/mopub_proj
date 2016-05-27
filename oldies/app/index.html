@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="egg">
+<head>
+    <title>Shake that App!</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-icon" href="images/eggstart.ico">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap och jQuery -->
+    <link rel="stylesheet" ng-href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--angular inporterat-->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-touch.js"></script>
+
+
+    <!-- Timer -->
+    <script src="node_modules/angular-timer/dist/assets/js/angular-timer-all.min.js"></script>
+    <script src="node_modules/angular-timer/dist/assets/js/angular-timer-bower.js"></script>
+
+
+    <!-- TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/TextPlugin.min.js"></script>
+    
+    <!-- Slider for egg-softness -->
+    <!-- In <head> -->
+    <link ng-href="bower_components/noUiSlider/nouislider.min.css" rel="stylesheet">
+
+    <!--Slideout meny-->
+    <script src="slideout-0.1.12/dist/slideout.min.js"></script>
+
+    <!-- added two library files to do youtube embeds easy as pie -->
+     <script src="https://youtube.com/iframe_api"></script>
+    <script src="js/angular-youtube-embed.js"></script>
+
+    <!--Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.0.0/firebase.js"></script>
+
+    <script src="carousel-swipe.js"></script>
+    <!-- jQuery mobile -->
+     <!-- <script src="jquery-mobile-master/js/jquery.mobile.js"></script> -->
+        <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+
+    <!-- Controllers -->
+	<script src="js/app.js"></script>
+    <script src="js/menuCtrl.js"></script>
+	<script src="js/boilCtrl.js"></script>	
+	<script src="js/loginCtrl.js"></script>
+	<script src="js/videosCtrl.js"></script>	
+    <script src="js/profileCtrl.js"></script>
+    <script src="js/newEggCtrl.js"></script>
+    <script src="js/timerCtrl.js"></script>
+</head>
+
+<body>	
+    <!-- In <body> -->
+<script src="bower_components/noUiSlider/nouislider.min.js"></script> 
+	<div class="container">
+
+		<div ng-view></div>
+        
+	</div>
+
+</body>
+
+</html> 		

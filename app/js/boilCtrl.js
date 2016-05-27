@@ -1,7 +1,7 @@
 eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$window){
 
-	// Getting egg-size selected by user
-	$scope.eggSize = eggModel.returnEggSize();
+// Getting egg-size selected by user
+$scope.eggSize = eggModel.returnEggSize();
 
 
 //Handling the slider 
@@ -63,22 +63,17 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
 	};
 
 // fetches the time to boil for the chosen softness called 'softness'
-//>>>>> GÖRAS I MODEL ISTÄLLET? 
-//>>>>> Just nu får man nämligen ingen tid i profile pga att denna ligger i ctrl.
-//>>>>> Vet inte vad som är bäst? Provade men lyckades inte få till det med att ha den i model
-//>>>>> Annars slår vi ihop Profile och boil controllerna igen om vi inte får det att funka
-//>>>>> Det som inte gick när jag la den i app var att då updaterades inte tid och softness med slidern
 	$scope.getEggTime = function(softness){
       	var allSoftness = eggModel.allEggs.child($scope.eggSize)
       	allSoftness.once("value", function(snapshot){
         	snapshot.forEach(function(childSnapshot) {
           		if(childSnapshot.key == softness){
+          		
           		//Adds the time to profile for the current egg
             	eggModel.addTimeToProfile(childSnapshot.val());
-
+	            
 	            //Fetches variables $scope.eggTime and $scope.softness so they can update dynamically
 	            //when using slider
-	            
 	            $scope.eggTime = eggModel.returnEggTime();
 	            $scope.softness = eggModel.returnSoftness();
 	            $scope.$apply()
@@ -88,10 +83,12 @@ eggApp.controller('boilCtrl', function($scope,$timeout,$location,eggModel,$windo
       	}); 
     };
 
+    //Redirects user back to previous page
 	$scope.goBack = function(){
 		history.back()
 	};
 
+	//Redirects user to timer page
     $scope.goToTimer = function(){
 		$location.path("/timer");
 	}
